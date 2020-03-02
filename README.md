@@ -1,8 +1,8 @@
-# Projeto e Prática I
+# PROJETO DE PRÁTICA I
 
 ## Tema do projeto: 
 
-Criação de um fórum para o Instituto Federal de Pernambuco.
+Criação de um fórum para o Instituto Federal de Pernambuco - Campus Igarassu.
 
 ## Objetivo do projeto:
 
