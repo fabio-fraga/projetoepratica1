@@ -7,10 +7,9 @@ Objetivo do projeto: facitar a interação entre os alunos da instituição, aux
 Equipe:
 
 Danilo Monteiro da Silva;
-Emerson 
 Everthon Henrique da Paz Barbosa;
-Fábio Moura de Fraga;
 Emerson Gabriel Queiroz de Moura;
+Fábio Moura de Fraga;
 Gabriel Barros Teixeira;
 Guilherme Valença Rodrigues Pereira;
 Paulo Vinícius Santos do Carmo.
