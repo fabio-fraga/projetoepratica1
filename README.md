@@ -1,4 +1,4 @@
-# PROJETO DE PRÁTICA I
+# PROJETO E PRÁTICA I
 
 ## Tema do projeto: 
 
