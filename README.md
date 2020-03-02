@@ -6,7 +6,7 @@ Criação de um fórum para o Instituto Federal de Pernambuco.
 
 ## Objetivo do projeto:
 
-Facitar a interação entre os alunos da instituição, auxiliando no compartilhamento de conhecimento e na resoluções de problemas e/ou dúvidas em determinado assunto.
+Facilitar a interação entre os alunos da instituição, auxiliando no compartilhamento de conhecimento e na resoluções de problemas e/ou dúvidas em determinado assunto.
 
 ## Linguagens de programação utilizadas:
 
@@ -24,4 +24,4 @@ PHP e JavaScript.
 
 ## Orientador:
 
-Prof. Alexandre Strapação Guedes Vianna
+Prof. Alexandre Strapação Guedes Vianna.
