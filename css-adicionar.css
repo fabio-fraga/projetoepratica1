@@ -19,6 +19,9 @@ form{
     padding:10px;
     position: absolute;
  }
+ fieldset{
+    text-align: center;
+ }
  input{
  	text-align: center;
  }

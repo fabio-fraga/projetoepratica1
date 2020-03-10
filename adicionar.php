@@ -3,6 +3,7 @@
 <?php
 $nome = $_POST['nome'];
 $email = $_POST['email'];
+$senha = $_POST['senha'];
 $validaremail = explode('@', $email);
 $errodepreenchimento = 0;
 $errodeemail = 0;
@@ -39,6 +40,7 @@ $errodenome = 0;
    <ul>
         <li>Nome: <strong><?= $nome ?></strong></li>
         <li>E-mail: <strong><?= $email ?></strong></li>
+        <li>Senha: <strong><?= $senha ?></strong></li>
         <form>
           <fieldset>
               <legend>Digite o código enviado para o seu e-mail:</legend>
