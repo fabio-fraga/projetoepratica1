@@ -1,37 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Página Inicial</title>
-	<link rel="stylesheet" type="text/css" href="css-paginainicial.css">
+    <link rel="stylesheet" type="text/css" href="css/comum.css">
+    <title>Login</title>
+    <script src="css/jquery-v3.4.1.min.js"></script>
 </head>
 <body>
+    <div id="container">
 
-    <header>
-	    <h1 id="h1superior">MyFIF</h1>
-	</header>
+        <div id="triangle">
 
-    <footer>
-    	<figure>
-    		<figcaption>
-    	        <h1 id="h1inferior">Projeto desenvolvido por alunos para alunos!</h1>
-    		</figcaption>
-    	    <img src="ifpe.png"/>
-    	</figure>
-    </footer>
+        </div>      
+    </div>
+               <h2 style="text-align: center; padding-top: 100px;">Myfifi</h2>
 
-	<form action="adicionar.php" method="POST">
-        <fieldset id="field1">
-            <legend><strong> Cadastro </strong></legend>
-            <input type="text" name="nome" placeholder="Nome">
-            <input type="text" name="email" placeholder="E-mail">
-            <input type="password" name="senha" placeholder="Senha">
-        </fieldset>
-            <fieldset id="field2">
-                <input type="submit" value="Confirmar">
-            </fieldset>
+
+    <form method="POST" action="adicionar.php" class="forlogin" id="login">
+
+        <p>Entre com sua conta do ????????</p>
+
+        <input type="email" name="email" placeholder="Endereço de E-mail" class="field" />
+
+        <input type="password" name="senha" placeholder="Digite sua Senha"class="field">
+
+        <input type="submit" value="Entrar">
+
+
     </form>
 
-    </body>
+    <p id="registarP" class="trocarFrom" onclick="registar();">Não tenho conta</p>
+
+    <form method="POST" action="adicionar.php" class="forlogin" id="registar">
+        <p>Crie sua conta do ????????</p>
+        
+        <input type="nome" name="nome" placeholder="Nome"class="field"/>
+
+        <input type="email" name="email" placeholder="Endereço de E-mail"class="field"/>
+
+        <input type="password" name="senha" placeholder="Digite sua Senha"class="field">
+
+        <input type="password" name="rep_senha" placeholder="Digite novamente sua Senha" class="field">
+
+        <input type="submit" value="Registrar">
+
+
+    </form>
+
+    <p id="loginP" class="trocarFrom" onclick="loginForm();">Já tenho conta</p>
+
+    <script type="text/javascript">
+        function registar(){
+            $("#login").fadeOut(1200);
+            $("#registarP").fadeOut(1200);
+            setTimeout(function(){
+                $("#registar").fadeIn();
+                $("#loginP").fadeIn();
+            
+            }, 1210)
+        }
+        function loginForm(){
+            $("#registar").fadeOut(1210);
+            $("#loginP").fadeOut(1210);
+            setTimeout(function(){
+            $("#login").fadeIn();
+            $("#registarP").fadeIn();
+                
+            }, 1210)
+        }
+    </script>
 </body>
 </html>
