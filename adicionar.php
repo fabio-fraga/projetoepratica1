@@ -6,6 +6,7 @@ $email = $_POST['email'];
 $validaremail = explode('@', $email);
 $errodepreenchimento = 0;
 $errodeemail = 0;
+$errodenome = 0;
 ?>
 
 <?php if (empty($nome) || empty($email)): ?>
@@ -18,7 +19,13 @@ $errodeemail = 0;
   <?php $errodeemail = 1; ?>
 <?php endif ?>
 
-<?php if ($errodeemail == 1 && $errodepreenchimento == 0): ?> 
+<?php if (preg_match("/([a-zA-ZÁ-Úá-ú ]+)/", $nome) == false && $errodepreenchimento == 0 && $errodeemail == 0): ?>
+  <?php $errodenome = 1; ?>
+  <?php include 'paginainicial.html' ?>
+  <div id="erro">Nenhum caractere especial ou número pode ser usado no campo de nome!</div>
+<?php endif ?>
+
+<?php if ($errodeemail == 1 && $errodepreenchimento == 0 && $errodenome == 0): ?> 
    <?php include 'paginainicial.html' ?>
    <div id="erro">É necessário que você possua um e-mail institucional!</div>
 <?php endif ?>
@@ -27,7 +34,7 @@ $errodeemail = 0;
   <?php $errodeemail = 0; ?>
 <?php endif ?>
 
-<?php if ($errodepreenchimento == 0 && $errodeemail == 0): ?>
+<?php if ($errodepreenchimento == 0 && $errodeemail == 0 && $errodenome == 0): ?>
    <h3>Confirmar conta:</h3>
    <ul>
         <li>Nome: <strong><?= $nome ?></strong></li>

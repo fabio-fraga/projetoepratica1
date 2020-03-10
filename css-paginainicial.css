@@ -43,9 +43,11 @@ legend{
 	text-align: center;
 }
 form{
-    left: 50%; 
-    top: 50%; 
-    margin: -130px 0 0 -210px; 
+    left: 42.5%; 
+    top: 50%;
+    width: 600px;
+    height: 160px;
+    margin: -130px 200px 0 -210px; 
     padding:10px;
     position: absolute;
     border: 1px solid black;
