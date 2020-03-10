@@ -7,13 +7,11 @@ $validaremail = explode('@', $email);
 $errodepreenchimento = 0;
 $errodeemail = 0;
 ?>
-<!-- <?php
-// include('paginainicial.html');
-?> -->
+
 <?php if (empty($nome) || empty($email)): ?>
    <?php $errodepreenchimento = 1; ?>
-
-   
+   <?php include 'paginainicial.html' ?>
+   <div id="erro"><p>Preencha todos os campos!</p></div>
 <?php endif ?>
 
 <?php if ($validaremail[1] != 'discente.ifpe.edu.br' && $validaremail[1] != 'igarassu.ifpe.edu.br'): ?>
@@ -42,5 +40,4 @@ $errodeemail = 0;
             </fieldset>
         </form>
    </ul>
-   <a href="/">Voltar</a>
 <?php endif ?>
