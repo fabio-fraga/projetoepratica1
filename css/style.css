@@ -98,17 +98,20 @@ img{
 	height: 50px;
 	margin: auto;
 }
-.down-site{
-	background-image: white;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	color: #ffffff;
-	padding-top: 150px;
-	padding-bottom: 300px;
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.filha-esquerda{
+	width: 30%;
+	float: left;
+	margin: 5px;
+}
+.filha-centro{
+	width: 33%;
+	float: left;
+	margin: 5px;
+
+}
+.filha-direita{
+	width: 33%;
+	float: left;
+	margin: 5px;
+
 }
