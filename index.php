@@ -1,4 +1,3 @@
-<?php
-include ('paginainicial.html');
-
+<?php 
+include ('login.html')
 ?>
