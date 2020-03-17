@@ -82,7 +82,7 @@ $tam_nome = false;
     <?php endif ?>
 <?php endif ?>
 
-<?php if ($erro_campos == false && $erro_nome == false && $erro_email == false && $erro_senhas == false && $tam_senha == false && $tam_nome == false): ?>
+<?php if ($erro_campos == false && $erro_nome == false && $erro_email == false && $tam_nome == false && $tam_senha == false && $erro_senhas == false): ?>
   <?php include ('conf_cadastro.html'); ?>
 
 <?php endif ?>
