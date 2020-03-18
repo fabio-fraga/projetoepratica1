@@ -82,11 +82,6 @@ img{
   	border: 1.5px solid black;
   	border-radius: 20px;
 }
-h1{
-	text-align: center;
-	color: black;
-	font-family: 'Acme', sans-serif;
-}
 span{
 	color: #e40000;
 }
@@ -133,6 +128,41 @@ footer{
  	margin-left: 0px;
  	display: table-footer-group;
 }
+table{
+  border-collapse: collapse;
+}
+h1{
+	text-align: center;
+	color: black;
+	font-family: 'Acme', sans-serif;
+}
+td{
+	width: 33.3%;
+	text-align: center;
+	padding-left: 1%;
+	padding-right: 1%;
+	vertical-align: middle;
+}
 .borda-right{
-	border-right: 1px solid black; 
+	border-right: 1px solid black;
+	width: 33.3%;
+	text-align: justify;
+	padding-left: 1%;
+	padding-right: 1%;
+	margin-top: 0px;
+	vertical-align: super;
+}
+.foto-footer{
+	padding-left: 35.5%;
+	padding-top: 0px;
+	width: 80px;
+	height: 80px;
+	margin: auto;
+}
+.versao-footer{
+	padding-top: 0px;
+	padding-right: 16px;
+	width: 80px;
+	height: 80px;
+	margin-top: 0%;	
 }

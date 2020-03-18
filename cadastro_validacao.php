@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="/css/cadastro_validacao.css">
+
 <?php
 $nome = $_POST['nome'];
 $email = $_POST['email'];
@@ -22,7 +24,7 @@ $tam_nome = false;
 
 <?php endif ?>
 
-<?php if (preg_match("/^[a-zA-Zç]+$/", $nome) == false): ?>
+<?php if (preg_match("/^[a-zA-Z0-9ç]+$/", $nome) == false): ?>
   <?php if ($erro_campos == false): ?>
     <?php $erro_nome = true; ?>
     <?php include ('cadastro.html'); ?>  
