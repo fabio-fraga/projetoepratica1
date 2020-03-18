@@ -33,12 +33,11 @@ img{
     height: 100%;
     padding-top: 8px;
     display: flex;
-    padding-left: 34px;
+    padding-left: 33px;
 }
 #input-pesquisa{
 	width: 92.7%;
 	height: 40%;
-	margin-right: 0%;
 }
 #submit-pesquisa{
 	width: 40px;
@@ -106,6 +105,7 @@ footer{
 }
 table{
   border-collapse: collapse;
+  margin-top: 20px;
 }
 h1{
 	text-align: center;
@@ -142,15 +142,6 @@ td{
 	height: 80px;
 	margin-top: 0%;	
 }
-.div-form{
-	background-color: white;
-	width: 350px;
-	height: 380px;
-	margin: auto;
-  	text-align: center;
-  	border: 1.5px solid black;
-  	border-radius: 20px;
-}
 input{
   border-radius: 4px;
   margin-top: 20px;
@@ -169,4 +160,32 @@ input{
 	margin: auto;
 	font-family: 'Acme', sans-serif;
 	font-size: 25px;
+}
+.div-form{
+	position: relative;
+	background-color: white;
+	width: 350px;
+	height: 360px;
+	margin: auto;
+  	text-align: center;
+  	border: 1.5px solid black;
+  	border-radius: 20px;
+}
+.div-form-erro{
+	position: relative;
+	background-color: white;
+	width: 350px;
+	height: 400px;
+	margin: auto;
+  	text-align: center;
+  	border: 1.5px solid black;
+  	border-radius: 20px;
+}
+#p-erro{
+	text-align: center;
+	color: #e40000;
+	font-weight: bold;
+	font-size: 16px;
+	width: 100%;
+	margin-top: 3.4%;
 }

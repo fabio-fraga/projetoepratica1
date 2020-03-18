@@ -21,7 +21,7 @@
 
         <h1 id="msgboasvindas">Ficou em dúvida sobre como responder determinada questão? Crie tópicos, responda perguntas e interaja com a comunidade do <span>Fórum</span> <span id="forall">For All</span> !</h1>
         
-        <div class="div-form">
+        <div class="div-form-erro">
             
     <form action="cadastro_validacao.php" method="POST">
 
@@ -33,7 +33,9 @@
         <input type="submit" value="Registrar"/>
 
     </form>
-    
+
+        <p id="p-erro"><?=$report_erro?></p>
+
     <br>
     <br>
     <br>
@@ -43,7 +45,7 @@
         </div>
 
     </div>
-
+   
     <footer>
         <table>
             <tr>
