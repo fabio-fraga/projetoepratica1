@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>Cadastro</title>
+    <link href="css/cadastro.css" rel="stylesheet">
 </head>
 <body>
+    <div class="div-principal">
 
-    <h1>MyFIF</h1>
-
+        <h1 id="msgcadastro">Crie sua conta no <span>Fórum</span> <span id="forall">For All</span> !</h1>
+        
+        <div class="div-form">
+            
+        
     <form action="cadastro_validacao.php" method="POST">
 
-        <p>Cadastre-se</p>
-        
+        <h1>Cadastre-se!</h1>
         <input type="text" name="nome" placeholder="Nome de usuário - ID"/>
-        <input type="text" name="email" placeholder="Endereço de e-mail"/>
-        <input type="password" name="senha" placeholder="Senha"/>
+        <input type="text" name="email" placeholder="Endereço de e-mail"/>                
+        <input type="password" name="senha" placeholder="Senha"/> 
         <input type="password" name="redigitar_senha" placeholder="Digite a senha novamente"/>
         <input type="submit" value="Registrar"/>
 
     </form>
+    <br>
+    <br>
+    <br>
+    <h1>Já possui uma conta? <a href="/">Faça login</a></h1>
+        
+        </div>
 
+    </div>
 </body>
 </html>
