@@ -1,3 +1,5 @@
-<?php 
-include ('login.html')
+<?php
+
+include ('home.php');
+
 ?>

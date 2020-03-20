@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+
+/* Background das páginas: Página Inicial (de login) e Página de Cadastro */
+
+body {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: cover;
+	background-color: #ffffff;
+	margin-top: 0px;
+ 	margin-bottom: 0px;
+ 	margin-right: 0px;
+ 	margin-left: 0px;
+}
+
+/* Cabeçalho das páginas: Página Inicial (de login) e Página de Cadastro */
+
+header{
+	height: 100px;
+	border: 1px solid black;
+	margin-top: 0px;
+ 	margin-bottom: 0px;
+ 	margin-right: 0px;
+ 	margin-left: 0px;
+ 	display: flex;
+ 	flex-direction: row;
+}
+img{
+	padding-left: 10px;
+	padding-top: 20px;
+	width: 120px;
+	height: 60px;
+}
+#form-pesquisa{
+    width: 100%;
+    height: 100%;
+    margin-left: 0.5%;
+    display: flex;
+}
+#input-pesquisa{
+  	margin-top: auto;
+  	margin-bottom: auto;
+  	margin-left: auto;
+  	margin-right: 0%;
+	width: 90%;
+	height: 40%;
+	border-radius: 4px;
+  	border: 1px solid black;
+  	text-align: center;
+  	font-family: 'Acme', sans-serif;
+  	font-size: 15px;
+}
+#submit-pesquisa{
+	background-color: #47C034;
+	width: 40px;
+	height: 42%;
+	margin-top: auto;
+  	margin-bottom: auto;
+  	margin-right: auto;
+  	margin-left: 0.3%;
+	border-radius: 4px;
+  	border: 1px solid black;
+  	font-family: 'Acme', sans-serif;
+  	font-size: 15px;
+}
+#submit-pesquisa:hover{
+	background-color: #e40000;
+}
+
+/* Rodapé das páginas: Página Inicial (de login) e Página de Cadastro */
+
+footer{
+	height: 100px;
+	margin-top: 0px;
+ 	margin-bottom: 0px;
+ 	margin-right: 0px;
+ 	margin-left: 0px;
+ 	display: table-footer-group;
+}
+table{
+	border-collapse: collapse;
+	width: 100%
+}
+#td-direita{
+	width: 33.3%;
+	text-align: center;
+	padding-left: 1%;
+	padding-right: 1%;
+	vertical-align: middle;
+}
+#td-centro{
+	border-right: 1px solid black;
+	width: 33.3%;
+	text-align: justify;
+	padding-left: 1%;
+	padding-right: 1%;
+	margin-top: 0px;
+	vertical-align: super;
+}
+#td-esquerda{
+	border-right: 1px solid black;
+	width: 33.3%;
+	text-align: justify;
+	padding-left: 1%;
+	padding-right: 1%;
+	margin-top: 0px;
+	vertical-align: super;
+}
+#foto-ifpe-footer{
+	padding-left: 35.5%;
+	padding-top: 0px;
+	width: 80px;
+	height: 80px;
+	margin: auto;
+}
+#foto-versao-footer{
+	padding-top: 0px;
+	padding-right: 16px;
+	width: 80px;
+	height: 80px;
+	margin-top: 0%;	
+}
+
+/* Formulário da página home */
+
+#div-principal-login{
+	background-image: url(/img/Background.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	color: #ffffff;
+	padding-top: 20px;
+	padding-bottom: 300px;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#div-form-login{
+	background-color: white;
+	width: 350px;
+	height: 280px;
+	margin: auto;
+  	text-align: center;
+  	border: 1.5px solid black;
+  	border-radius: 20px;
+}
+.inputs-form-login{
+  	border-radius: 4px;
+  	margin: auto;
+  	text-align: center;
+  	width: 300px;
+  	height: 30px;
+  	border: 1px solid black;
+  	font-family: 'Acme', sans-serif;
+  	font-size: 15px;
+}
+#msg-cadastre-se{
+	text-align: center;
+	margin: auto;
+	font-family: 'Acme', sans-serif;
+	font-size: 25px;
+}
+
+/* Formulário da Página de Cadastro */
+
+#div-principal-cadastro{
+	background-image: url(/img/Background.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	color: #ffffff;
+	padding-top: 20px;
+	padding-bottom: 300px;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#div-form-cadastro{
+	position: relative;
+	background-color: white;
+	width: 350px;
+	height: 400px;
+	margin: auto;
+  	text-align: center;
+  	border: 1.5px solid black;
+  	border-radius: 20px;
+}
+#input-nome{
+	margin-top: 0px;
+	border-radius: 4px;
+	text-align: center;
+	width: 300px;
+	height: 30px;
+	border: 1px solid black;
+	font-family: 'Acme', sans-serif;
+	font-size: 15px;
+}
+.inputs-form-cadastro{
+	border-radius: 4px;
+ 	margin-top: 20px;
+	text-align: center;
+	width: 300px;
+	height: 30px;
+	border: 1px solid black;
+	font-family: 'Acme', sans-serif;
+	font-size: 15px;
+}
+#msg-para-login{
+	text-align: center;
+	font-family: 'Acme', sans-serif;
+	font-size: 25px;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 18px;
+}
+#p-erro{
+	text-align: center;
+	color: #e40000;
+	font-weight: bold;
+	font-size: 16px;
+	width: 295px;
+	margin: auto;
+	margin-top: 2%;
+}
+
+/* CSS para os demais elementos das páginas: Página Inicial (de login) e Página de Cadastro*/
+
+#msg-boas-vindas{
+	text-align: center;
+	padding-bottom: 15px;
+	color: white;
+	font-family: 'Acme', sans-serif;
+	font-size: 30px;
+	-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000000;
+}
+span{
+	color: #e40000;
+}
+#forall{
+	color: #47C034;
+}
+input[type="submit"]{
+	background-color: #47C034;
+	font-size: 20px;
+}
+input[type="submit"]:hover{
+	background-color: #e40000;
+}
+h1{
+	text-align: center;
+	color: black;
+	font-family: 'Acme', sans-serif;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+a{
+	text-decoration: none;
+	color: #4B0082;
+	-webkit-text-stroke-width: 0.3px;
+    -webkit-text-stroke-color: #000000;
+}
+a:hover{
+	color: #e40000;
+}

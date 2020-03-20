@@ -1,4 +1,5 @@
 <?php
+
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
@@ -11,12 +12,13 @@ $erro_senhas = false;
 $tam_senha = false;
 $tam_nome = false;
 $report_erro = '';
+
 ?>
 
 <?php if (empty($nome) || empty($email) || empty($senha) || empty($conf_senha)): ?>
   <?php $erro_campos = true; ?>
   <?php $report_erro = 'Preencha todos os campos!'; ?>  
-  <?php include ('cadastro_erro.php'); ?>
+  <?php include 'cadastro_erro.php'; ?>
 
 <?php endif ?>
 
@@ -24,7 +26,7 @@ $report_erro = '';
   <?php if ($erro_campos == false): ?>
     <?php $erro_nome = true; ?>
     <?php $report_erro = 'Caracteres especiais, espaços e letras acentuadas não podem ser utilizados no campo de ID!'; ?>  
-    <?php include ('cadastro_erro.php'); ?> 
+    <?php include 'cadastro_erro.php'; ?> 
 
     <?php endif ?>
 <?php endif ?>
@@ -33,7 +35,7 @@ $report_erro = '';
   <?php if ($erro_campos == false && $erro_nome == false): ?>
     <?php $erro_email = true; ?>
     <?php $report_erro = 'Insira um e-mail válido!'; ?>   
-    <?php include ('cadastro_erro.php'); ?>
+    <?php include 'cadastro_erro.php'; ?>
 
     <?php endif ?>
 <?php endif ?>
@@ -42,7 +44,7 @@ $report_erro = '';
   <?php if ($erro_campos == false && $erro_nome == false && $erro_email == false): ?>
     <?php $tam_nome = true; ?>
     <?php $report_erro = 'O ID deve conter no máximo 64 caracteres!'; ?> 
-    <?php include ('cadastro_erro.php'); ?>
+    <?php include 'cadastro_erro.php'; ?>
  
   <?php endif ?>
 <?php endif ?>
@@ -51,7 +53,7 @@ $report_erro = '';
   <?php if ($erro_campos == false && $erro_nome == false && $erro_email == false && $tam_nome == false): ?>
     <?php $tam_senha = true; ?>
     <?php $report_erro = 'A senha deve conter no mínimo 8 caracteres e no máximo 16!'; ?> 
-    <?php include ('cadastro_erro.php'); ?>
+    <?php include 'cadastro_erro.php'; ?>
  
   <?php endif ?>
 <?php endif ?>
@@ -60,12 +62,12 @@ $report_erro = '';
   <?php if ($erro_campos == false && $erro_nome == false && $erro_email == false && $tam_nome == false && $tam_senha == false): ?>
     <?php $erro_senhas = true; ?>
     <?php $report_erro = 'As senhas não coincidem!'; ?> 
-    <?php include ('cadastro_erro.php'); ?>
+    <?php include 'cadastro_erro.php'; ?>
 
     <?php endif ?>
 <?php endif ?>
 
 <?php if ($erro_campos == false && $erro_nome == false && $erro_email == false && $tam_nome == false && $tam_senha == false && $erro_senhas == false): ?>
-  <?php include ('conf_cadastro_erro.php'); ?>
+  <?php include 'conf_cadastro.php'; ?>
 
 <?php endif ?>
