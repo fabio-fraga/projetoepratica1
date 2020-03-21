@@ -20,8 +20,8 @@ include 'templates/header_home-cadastro.html';
         
         <form action="login_validacao.php" method="POST">
 
-        <h1>Login</h1>
-        <input type="text" name="email" placeholder="ID ou Endereço de e-mail" class="inputs-form-login"/> 
+        <h1 id="titulo-login">Login</h1>
+        <input type="text" name="email" placeholder="ID ou Endereço de e-mail" id="input-email"/> 
     	<br>
     	<br>		       										
         <input type="password" name="senha" placeholder="Senha" class="inputs-form-login"/>

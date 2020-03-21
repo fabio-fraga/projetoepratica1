@@ -20,7 +20,7 @@ include 'templates/header_home-cadastro.html';
             
 <form action="cadastro_validacao.php" method="POST">
 
-    <h1>Cadastro</h1>
+    <h1 id="titulo-cadastro">Cadastro</h1>
     <input type="text" name="nome" placeholder="Nome de usuário - ID" id="input-nome"/>
     <input type="text" name="email" placeholder="Endereço de e-mail" class="inputs-form-cadastro"/>                
     <input type="password" name="senha" placeholder="Senha" class="inputs-form-cadastro"/> 

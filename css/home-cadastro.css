@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 /* Background das páginas: Página Inicial (de login) e Página de Cadastro */
 
@@ -17,55 +17,71 @@ body {
 /* Cabeçalho das páginas: Página Inicial (de login) e Página de Cadastro */
 
 header{
-	height: 100px;
+	position: fixed;
+	background-color: #041b00;
+	height: 60px;
 	border: 1px solid black;
 	margin-top: 0px;
  	margin-bottom: 0px;
  	margin-right: 0px;
  	margin-left: 0px;
  	display: flex;
+ 	width: 100%;
  	flex-direction: row;
 }
 img{
-	padding-left: 10px;
-	padding-top: 20px;
-	width: 120px;
-	height: 60px;
+	padding-left: 32px;
+	padding-top: 10px;
+	width: 70px;
+	height: 40px;
 }
 #form-pesquisa{
-    width: 100%;
+    width: 60%;
     height: 100%;
-    margin-left: 0.5%;
+    margin-left: 0%;
+    margin-right: 0%;
     display: flex;
 }
 #input-pesquisa{
+	background-image: url(/img/lupa.png);
+	background-repeat: no-repeat;
+	background-size: 31px;
   	margin-top: auto;
   	margin-bottom: auto;
-  	margin-left: auto;
+  	margin-left: 32px;
   	margin-right: 0%;
-	width: 90%;
-	height: 40%;
+	width: 100%;
+	height: 50%;
 	border-radius: 4px;
   	border: 1px solid black;
-  	text-align: center;
-  	font-family: 'Acme', sans-serif;
-  	font-size: 15px;
+  	text-align: left;
+  	padding-left: 38px;
+  	font-family: 'Ubuntu', sans-serif;
+  	font-size: 18px;
 }
-#submit-pesquisa{
-	background-color: #47C034;
-	width: 40px;
-	height: 42%;
-	margin-top: auto;
-  	margin-bottom: auto;
-  	margin-right: auto;
-  	margin-left: 0.3%;
-	border-radius: 4px;
-  	border: 1px solid black;
-  	font-family: 'Acme', sans-serif;
-  	font-size: 15px;
+#ul-header {
+ 	list-style-type: none;
+	margin: 0;
+ 	padding: 0;
+  	width: 100%;
 }
-#submit-pesquisa:hover{
-	background-color: #e40000;
+
+.li-header{
+ 	float: right;
+    display: block;
+	color: white;
+	text-align: center;
+	padding-right: 30px;
+	padding-top: 19px;
+	margin: auto;
+	text-decoration: none;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.li-header a{
+	color: white;
 }
 
 /* Rodapé das páginas: Página Inicial (de login) e Página de Cadastro */
@@ -77,49 +93,26 @@ footer{
  	margin-right: 0px;
  	margin-left: 0px;
  	display: table-footer-group;
+ 	background-color: white;
 }
 table{
 	border-collapse: collapse;
-	width: 100%
+	width: 100%;
 }
-#td-direita{
-	width: 33.3%;
-	text-align: center;
-	padding-left: 1%;
-	padding-right: 1%;
-	vertical-align: middle;
-}
-#td-centro{
-	border-right: 1px solid black;
-	width: 33.3%;
+#div-footer{
+	width: 97%;
 	text-align: justify;
-	padding-left: 1%;
-	padding-right: 1%;
 	margin-top: 0px;
-	vertical-align: super;
-}
-#td-esquerda{
-	border-right: 1px solid black;
-	width: 33.3%;
-	text-align: justify;
-	padding-left: 1%;
-	padding-right: 1%;
-	margin-top: 0px;
-	vertical-align: super;
-}
-#foto-ifpe-footer{
-	padding-left: 35.5%;
-	padding-top: 0px;
-	width: 80px;
-	height: 80px;
 	margin: auto;
+	vertical-align: super;
 }
-#foto-versao-footer{
-	padding-top: 0px;
-	padding-right: 16px;
-	width: 80px;
-	height: 80px;
-	margin-top: 0%;	
+#ajuda-instruções{
+	text-align: center;
+	color: black;
+	font-family: 'Ubuntu', sans-serif;
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
 }
 
 /* Formulário da página home */
@@ -131,37 +124,57 @@ table{
 	background-size: cover;
 	background-attachment: fixed;
 	color: #ffffff;
-	padding-top: 20px;
-	padding-bottom: 300px;
+	padding-top: 80px;
+	padding-bottom: 165px;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
 }
 #div-form-login{
 	background-color: white;
 	width: 350px;
-	height: 280px;
+	height: 255px;
 	margin: auto;
   	text-align: center;
   	border: 1.5px solid black;
   	border-radius: 20px;
 }
-.inputs-form-login{
-  	border-radius: 4px;
-  	margin: auto;
+#titulo-login{
+	text-align: center;
+	color: black;
+	font-family: 'Ubuntu', sans-serif;
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%
+}
+#input-email{
+	border-radius: 4px;
+  	margin-top: -10px;
   	text-align: center;
   	width: 300px;
   	height: 30px;
   	border: 1px solid black;
-  	font-family: 'Acme', sans-serif;
+  	font-family: 'Ubuntu', sans-serif;
+  	font-size: 15px;
+}
+.inputs-form-login{
+  	border-radius: 4px;
+  	margin-top: -6px;
+  	text-align: center;
+  	width: 300px;
+  	height: 30px;
+  	border: 1px solid black;
+  	font-family: 'Ubuntu', sans-serif;
   	font-size: 15px;
 }
 #msg-cadastre-se{
 	text-align: center;
 	margin: auto;
-	font-family: 'Acme', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 25px;
+	color: #020e00;
+	-webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #000000;
 }
 
 /* Formulário da Página de Cadastro */
@@ -173,51 +186,61 @@ table{
 	background-size: cover;
 	background-attachment: fixed;
 	color: #ffffff;
-	padding-top: 20px;
-	padding-bottom: 300px;
+	padding-top: 80px;
+	padding-bottom: 67px;
 	-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 #div-form-cadastro{
-	position: relative;
 	background-color: white;
 	width: 350px;
-	height: 400px;
+	height: 350px;
 	margin: auto;
   	text-align: center;
   	border: 1.5px solid black;
   	border-radius: 20px;
 }
+#titulo-cadastro{
+	text-align: center;
+	color: black;
+	font-family: 'Ubuntu', sans-serif;
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%
+}
 #input-nome{
-	margin-top: 0px;
+	margin-top: -10px;
 	border-radius: 4px;
 	text-align: center;
 	width: 300px;
 	height: 30px;
 	border: 1px solid black;
-	font-family: 'Acme', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 15px;
 }
 .inputs-form-cadastro{
 	border-radius: 4px;
- 	margin-top: 20px;
+ 	margin-top: 12px;
 	text-align: center;
 	width: 300px;
 	height: 30px;
 	border: 1px solid black;
-	font-family: 'Acme', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 15px;
 }
 #msg-para-login{
 	text-align: center;
-	font-family: 'Acme', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 25px;
 	margin-bottom: auto;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 18px;
+	color: #020e00;
+	-webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #000000;
 }
 #p-erro{
 	text-align: center;
@@ -235,9 +258,11 @@ table{
 	text-align: center;
 	padding-bottom: 15px;
 	color: white;
-	font-family: 'Acme', sans-serif;
+	margin-top: 1.3%;
+	font-family: 'Ubuntu', sans-serif;
 	font-size: 30px;
-	-webkit-text-stroke-width: 1px;
+	color: #041b00;
+	-webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: #000000;
 }
 span{
@@ -256,7 +281,8 @@ input[type="submit"]:hover{
 h1{
 	text-align: center;
 	color: black;
-	font-family: 'Acme', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
+	margin-top: 2%;
 	margin-left: 2%;
 	margin-right: 2%;
 }
