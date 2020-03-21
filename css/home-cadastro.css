@@ -115,7 +115,7 @@ table{
 	margin-right: 2%;
 }
 
-/* Formulário da página home */
+/* Formulário da Página Inicial/home */
 
 #div-principal-login{
 	background-image: url(/img/Background.png);
@@ -252,7 +252,7 @@ table{
 	margin-top: 2%;
 }
 
-/* CSS para os demais elementos das páginas: Página Inicial (de login) e Página de Cadastro*/
+/* CSS para os demais elementos das páginas: Página Inicial (de login) e Página de Cadastro */
 
 #msg-boas-vindas{
 	text-align: center;
