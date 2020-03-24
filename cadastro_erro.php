@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title>Página de Cadastro</title>
-    <link href="css/home-cadastro.css" rel="stylesheet">
 </head>
 
 <?php
@@ -14,7 +13,7 @@ include 'templates/header_home-cadastro.html';
 
 <div id="div-principal-cadastro">
 
-    <h1 id="msg-boas-vindas">Ficou em dúvida sobre como responder determinada questão? Crie tópicos, responda perguntas e interaja com a comunidade do <span>Fórum</span> <span id="forall">For All</span> !</h1>
+    <h1 id="msg-boas-vindas">Ficou em dúvida sobre como responder determinada questão? Crie tópicos, responda perguntas e interaja com a comunidade do <span id="msg-forum">Fórum</span> <span id="msg-forall">For All</span> !</h1>
         
     <div id="div-form-cadastro">
             

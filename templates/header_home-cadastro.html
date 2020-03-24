@@ -1,17 +1,29 @@
+<link rel="shortcut icon" href="/img/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="/css/home-cadastro.css">
+
 <body>
 
     <header>
-        <a href="/"><img src="img/Logo-Forum.png"></a> 
-
-        <form action="pesquisar.php" method="POST" id="form-pesquisa">
-            <input type="text" name="pesquisar" placeholder="Pesquisar" id="input-pesquisa"/>
-        </form>
+        <a href="/"><img src="img/Logo-Forum.png" id="logo"></a> 
         
+
+          <form action="pesquisar.php" method="POST" id="form-pesquisa">
+
+            <input type="text" name="pesquisar" placeholder="Clique aqui para pesquisar"/>
+            <span></span>
+
+        </form>
+
+    <div id="div-opcoes">
+      
 		<ul id="ul-header">
-  			<li class="li-header"><a href="#news" class="a-header">Sobre</a></li>
-	  		<li class="li-header"><a href="https://github.com/FabioMouradeFraga/projetoepratica1" class="a-header">GitHub</a></li>
-  			<li class="li-header">v1.0-Alfa</li>
+  			<li class="li-header"><a href="sobre.php" class="a-header">Sobre</a></li>
+  			<li class="li-header"><a href="ajuda.php">Ajuda</a></li>
+	  		<li class="li-header"><a href="https://github.com/FabioMouradeFraga/projetoepratica1" target="_blank" class="a-header">GitHub</a>
+        </li>
+        <li class="li-header"><a href="/pdf/Proposta - Projeto e Prática 1 - Fórum IFPE.pdf">Documentação</a></li>
 		</ul>
 
+    </div>
     </header>
     

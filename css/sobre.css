@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(/img/Background.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+#geral {
+  margin: 0;
+  padding-top: 62px;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  background-color: #1c4b21;
+}
+
+.container {
+  padding: 0 10px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: #d2d2d2;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 150%;
+    display: block;
+  }
+}
+
+p{
+  word-wrap: break-word;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+h2{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+img{
+  width: 100%;
+}
+
+.LinkedIn{
+  width: 40%;
+}
