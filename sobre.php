@@ -30,7 +30,7 @@ include 'templates/header_home-cadastro.html';
         <p class="title">Lider Técnico</p>
         <p>Estudante de Informática Para Internet</p>
         <p>Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco - campus Igarassu</p>
-        <p><a href="https://www.linkedin.com/in/everthon-barbosa-442111197/" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
+        <p><a href="https://www.linkedin.com/in/everthon-barbosa-442111197" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
         <p>everthon.henrique.75@gmail.com</p>
       </div>
     </div>
