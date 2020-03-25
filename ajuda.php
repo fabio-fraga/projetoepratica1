@@ -1,6 +1,6 @@
 <?php 
 
-include 'templates/header_home-cadastro.html';
+include 'templates/header_comum.html';
 
 ?>
 
@@ -17,7 +17,7 @@ include 'templates/header_home-cadastro.html';
             </p> 
             <p class="p-ajuda">
                 <strong>2.Login: </strong>
-                    Para realizar o login, o usuário só precisa inserir o ID ou e-mail e a senha utilizados quando se cadastrou no site.
+                    Para realizar o login, o usuário só precisa inserir o e-mail e a senha utilizados quando se cadastrou no site.
             </p>
             <p class="p-ajuda">
                 <strong>3.Cadastro: </strong>
@@ -25,7 +25,7 @@ include 'templates/header_home-cadastro.html';
             </p>
             <p class="p-ajuda">
                 <strong>4.Funcionalidades: </strong>
-                    Qualquer usuário, cadastrado ou não, pode criar tópicos, ou seja, fazer perguntas. Ademais, o Fórum For All disponibiliza "Salas" nas quais os usuários de determinado curso podem interagir com os outros membros também cadastrados na turma.
+                    Qualquer usuário, cadastrado ou não, pode criar tópicos e responder perguntas. Ademais, o Fórum For All disponibiliza "salas" nas quais os usuários de determinado curso podem interagir com os outros membros também cadastrados na turma.
             </p> 
       </div>
     </div>
@@ -33,6 +33,6 @@ include 'templates/header_home-cadastro.html';
 
 <?php 
 
-include 'templates/footer_home-cadastro.html';
+include 'templates/footer_comum.html';
 
 ?>
