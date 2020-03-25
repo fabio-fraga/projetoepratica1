@@ -7,7 +7,7 @@
 
 <?php
 
-include 'templates/header_home-cadastro.html';
+include 'templates/header_comum.html';
 
 ?>
 
@@ -42,6 +42,6 @@ include 'templates/header_home-cadastro.html';
    
 <?php 
 
-include 'templates/footer_home-cadastro.html';
+include 'templates/footer_comum.html';
 
 ?>
