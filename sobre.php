@@ -1,6 +1,6 @@
 <?php 
 
-include 'templates/header_home-cadastro.html';
+include 'templates/header_comum.html';
 
 ?>
 
@@ -86,8 +86,8 @@ include 'templates/header_home-cadastro.html';
         <p class="title">Desenvolvedor</p>
         <p>Estudante de Informática Para Internet</p>
         <p>Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco - campus Igarassu</p>
-        <p><a href=""><img src="img/linkedin.png" class="LinkedIn"></a></p>
-        <p>email@gmail.com</p>
+        <p><a href="https://www.linkedin.com/in/guilherme-valen%C3%A7a-2a38541a5/" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
+        <p>guilherm3vrp@gmail.com</p>
       </div>
     </div>
   </div>
@@ -100,7 +100,7 @@ include 'templates/header_home-cadastro.html';
         <p class="title">Desenvolvedor</p>
         <p>Estudante de Informática Para Internet</p>
         <p>Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco - campus Igarassu</p>
-        <p><a href=""><img src="img/linkedin.png" class="LinkedIn"></a></p>
+        <p><a href="https://www.linkedin.com/in/paulo-vinicius-8006271a5/" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
         <p>paulo16226@gmail.com</p>
       </div>
     </div>
@@ -124,6 +124,6 @@ include 'templates/header_home-cadastro.html';
 
 <?php 
 
-include 'templates/footer_home-cadastro.html';
+include 'templates/footer_comum.html';
 
 ?>
