@@ -18,7 +18,7 @@ try {
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
 
-    $mail->setFrom('everthon.henrique.75@gmail.com', 'Everthon');
+    $mail->setFrom('everthon.henrique.74@gmail.com', 'Forum For All');
     $mail->addAddress($email, $nome);
 
     $mail->isHTML(true);
