@@ -23,5 +23,6 @@ PHP e JavaScript.
 
 ## Orientadores:
 
-Prof. Alexandre Strapação Guedes Vianna.
-Prof. Ranieri Valença de Carvalho.
+* Prof. Alexandre Strapação Guedes Vianna.
+* Prof. Ranieri Valença de Carvalho.
+
