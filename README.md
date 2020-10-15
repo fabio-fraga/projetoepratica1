@@ -18,8 +18,8 @@ PHP e JavaScript.
 * Everthon Henrique da Paz Barbosa;
 * Fábio Moura de Fraga;
 * Gabriel Barros Teixeira;
-* Huanderson Mateus Melo de Lima
-* Paulo Vinícius Santos do Carmo.
+* Huanderson Mateus Melo de Lima;
+* Paulo Vinícius Santos do Carmo;
 
 ## Orientadores:
 
