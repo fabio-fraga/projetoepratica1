@@ -19,10 +19,10 @@ PHP e JavaScript.
 * Fábio Moura de Fraga;
 * Gabriel Barros Teixeira;
 * Huanderson Mateus Melo de Lima;
-* Paulo Vinícius Santos do Carmo;
+* Paulo Vinícius Santos do Carmo.
 
 ## Orientadores:
 
-* Prof. Alexandre Strapação Guedes Vianna.
+* Prof. Alexandre Strapação Guedes Vianna;
 * Prof. Ranieri Valença de Carvalho.
 
