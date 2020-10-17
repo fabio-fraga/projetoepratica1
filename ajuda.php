@@ -4,7 +4,7 @@ include 'templates/header_comum.html';
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/ajuda.css">
+<link rel="stylesheet" type="text/css" href="styles/ajuda.css">
   
   <div class="column">
     <div class="card">

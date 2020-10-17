@@ -13,17 +13,18 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'everthon.henrique.74@gmail.com';
-    $mail->Password = '85265816123';
+    $mail->Username = 'forumf4all@gmail.com';
+    $mail->Password = 'forumf4all';
     $mail->Port = 587;
     $mail->SMTPSecure = 'tls';
 
-    $mail->setFrom('everthon.henrique.74@gmail.com', 'Forum For All');
+    $mail->setFrom('forumf4all@gmail.com', 'Fórum For All - F4All');
     $mail->addAddress($email, $nome);
 
     $mail->isHTML(true);
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = RANDOM;
+    $mail->CharSet = 'UTF-8';
+    $mail->Subject = 'Código de confirmação - F4All!';
+    $mail->Body    = 'Olá, ' . $nome . '! Aqui está o seu código de confirmação para finalizar o cadastro no F4All! =)' . '<br>' . 'Código: ' . RANDOM;
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();

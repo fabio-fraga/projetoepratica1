@@ -1,6 +1,10 @@
 <?php
 
+session_start();
+
 define('RANDOM', rand(1000, 10000));
+
+$_SESSION['conf'] = RANDOM; 
 
 echo 'Código: ' . RANDOM . PHP_EOL;
 
@@ -24,11 +28,10 @@ include 'enviar_email.php';
         <li>E-mail: <strong><?= $email ?></strong></li>
         <li>Senha: <strong><?= $senha ?></strong></li>
 
-        <form action="conf_cadastro_validacao.php" method="POST">
+        <form action="cad_conf_validacao.php" method="POST">
 
               <legend>Digite o código enviado para o seu e-mail:</legend>
-                <input type="text" name="codigo" placeholder="Código">
-                <input type="hidden" name="chave" value=<?=RANDOM?>>
+                <input type="number" name="codigo" placeholder="Código">
                 <input type="submit" value="Confirmar"> 
 
         </form>

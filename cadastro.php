@@ -17,7 +17,7 @@ include 'templates/header_comum.html';
         
     <div id="div-form-cadastro">
             
-<form action="cadastro_validacao.php" method="POST">
+<form action="cad_validacao.php" method="POST">
 
     <h1 id="titulo-cadastro">Cadastro</h1>
     <input type="text" name="nome" placeholder="Nome de usuário - ID" id="input-nome"/>
@@ -27,17 +27,19 @@ include 'templates/header_comum.html';
     <input type="submit" value="Registrar" class="inputs-form-cadastro"/>
 
 </form>
-    
+
+    <p id="p-erro"><?=$report_erro?></p>
+
 <br>
 <br>
 <br>
-       
+  
     </div>
     
 <h1 id="msg-para-login">Já possui uma conta? <a href="/">Faça login</a>!</h1>
 
 </div>
-
+   
 <?php 
 
 include 'templates/footer_comum.html';

@@ -4,7 +4,7 @@ include 'templates/header_comum.html';
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="/css/sobre.css">
+<link rel="stylesheet" type="text/css" href="/styles/sobre.css">
   
 <div id="geral">
 
@@ -52,21 +52,7 @@ include 'templates/header_comum.html';
 
   <div class="column">
     <div class="card">
-      <img src="/img/emerson.jpg">
-      <div class="container">
-        <h2>Emerson Moura</h2>
-        <p class="title">Desenvolvedor</p>
-        <p>Estudante de Informática Para Internet</p>
-        <p>Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco - campus Igarassu</p>
-        <p><a href="https://www.linkedin.com/in/emerson-gabriel-480403196/" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
-        <p>emersongabriel501@gmail.com</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="/img/gabriel.jpg">
+      <img src="/img/gabriel.jpeg">
       <div class="container">
         <h2>Gabriel Teixeira</h2>
         <p class="title">Desenvolvedor</p>
@@ -80,14 +66,14 @@ include 'templates/header_comum.html';
 
   <div class="column">
     <div class="card">
-      <img src="/img/guilherme.jpg">
+      <img src="/img/huanderson.jpg">
       <div class="container">
-        <h2>Guilherme Pereira</h2>
+        <h2>Huanderson Lima</h2>
         <p class="title">Desenvolvedor</p>
         <p>Estudante de Informática Para Internet</p>
         <p>Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco - campus Igarassu</p>
-        <p><a href="https://www.linkedin.com/in/guilherme-valen%C3%A7a-2a38541a5/" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
-        <p>guilherm3vrp@gmail.com</p>
+        <p><a href="https://www.linkedin.com/in/?????????????" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
+        <p>????????????@gmail.com</p>
       </div>
     </div>
   </div>
@@ -113,9 +99,23 @@ include 'templates/header_comum.html';
         <h2>Alexandre Vianna</h2>
         <p class="title">Orientador</p>
         <p>Professor do Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco - campus Igarassu</p>
-        <p>Doutorando em Eng. de Software na UFPE</p>
+        <p>Doutorando em Eng. de Software - UFPE</p>
         <p><a href="https://www.linkedin.com/in/alexandre-vianna-38184358/" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
         <p>alexandre.vianna@igarassu.ifpe.edu.br</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="/img/ranieri.jpg">
+      <div class="container">
+        <h2>Ranieri Valença</h2>
+        <p class="title">Orientador</p>
+        <p>Professor do Instituto Federal de Educação, Ciência e Tecnologia de Pernambuco - campus Igarassu</p>
+        <p>Mestre em Ciência da Computação - UFPE</p>
+        <p><a href="https://www.linkedin.com/in/ranierivalenca" target="_blank"><img src="img/linkedin.png" class="LinkedIn"></a></p>
+        <p>ranieri.carvalho@igarassu.ifpe.edu.br</p>
       </div>
     </div>
   </div>

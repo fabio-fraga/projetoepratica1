@@ -17,12 +17,11 @@ PHP e JavaScript.
 * Danilo Monteiro da Silva;
 * Everthon Henrique da Paz Barbosa;
 * Fábio Moura de Fraga;
+* Emerson Gabriel Queiroz de Moura;
 * Gabriel Barros Teixeira;
-* Huanderson Mateus Melo de Lima;
+* Guilherme Valença Rodrigues Pereira;
 * Paulo Vinícius Santos do Carmo.
 
-## Orientadores:
+## Orientador:
 
-* Prof. Alexandre Strapação Guedes Vianna;
-* Prof. Ranieri Valença de Carvalho.
-
+Prof. Alexandre Strapação Guedes Vianna.

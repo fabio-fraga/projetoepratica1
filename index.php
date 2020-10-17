@@ -1,5 +1,5 @@
 <?php
 
-include ('home.php');
+header('location: login.php');
 
 ?>

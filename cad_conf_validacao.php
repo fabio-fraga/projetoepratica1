@@ -1,10 +1,12 @@
 <?php
 
-$codigo = $_POST['codigo'];
-$chave = $_POST['chave'];
+session_start();
 
-if ($codigo == $chave) {
+$codigo = $_POST['codigo'];
+
+if ($codigo == $_SESSION['conf']) {
 	echo "Conta Confirmada!";
+	session_destroy($_SESSION['conf']);
 } else {
 	echo "Código incorreto!";
 }
