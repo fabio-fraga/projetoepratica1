@@ -24,14 +24,14 @@ if ($codigo == $_SESSION['codigo']) {
 
     echo "Conta Confirmada!";
 
-    session_destroy($_SESSION['codigo']);
-    session_destroy($_SESSION['login']);
-    session_destroy($_SESSION['nome']);
-  	session_destroy($_SESSION['email']);
-  	session_destroy($_SESSION['linkedin']);
-  	session_destroy($_SESSION['github']);
-  	session_destroy($_SESSION['birth']);
-  	session_destroy($_SESSION['senha']);
+    unset($_SESSION['codigo']);
+    unset($_SESSION['login']);
+    unset($_SESSION['nome']);
+  	unset($_SESSION['email']);
+  	unset($_SESSION['linkedin']);
+  	unset($_SESSION['github']);
+  	unset($_SESSION['birth']);
+  	unset($_SESSION['senha']);
     
 } else {
     echo "Código incorreto!";
