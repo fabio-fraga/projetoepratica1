@@ -1,5 +1,8 @@
 <?php
 
-header('location: login.php');
+session_start();
+
+header('location: home.php');
 
 ?>
+

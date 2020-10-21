@@ -216,7 +216,7 @@ footer{
 #div-form-cadastro{
 	background-color: white;
 	width: 350px;
-	height: 350px;
+	height: 490px;
 	margin: auto;
   	text-align: center;
   	border: 1.5px solid black;
@@ -254,7 +254,7 @@ footer{
 	border-color: black; 
   	box-shadow: 0 0 8px 0 black;
   	border: 1px solid black;
-  	border-radius: 4px
+  	border-radius: 4px;
 }
 #msg-para-login{
 	text-align: center;

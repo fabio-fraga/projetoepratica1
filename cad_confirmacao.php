@@ -1,17 +1,3 @@
-<?php
-
-session_start();
-
-define('RANDOM', rand(1000, 10000));
-
-$_SESSION['conf'] = RANDOM; 
-
-echo 'Código: ' . RANDOM . PHP_EOL;
-
-include 'enviar_email.php';
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,13 +12,16 @@ include 'enviar_email.php';
     <ul>
         <li>ID: <strong><?= $nome ?></strong></li>
         <li>E-mail: <strong><?= $email ?></strong></li>
+        <li>LinkedIn: <strong><?= $linkedin ?></strong></li>
+        <li>GitHub: <strong><?= $github ?></strong></li>
+        <li>Nascimento: <strong><?= $birth ?></strong></li>
         <li>Senha: <strong><?= $senha ?></strong></li>
 
         <form action="cad_conf_validacao.php" method="POST">
 
-              <legend>Digite o código enviado para o seu e-mail:</legend>
-                <input type="number" name="codigo" placeholder="Código">
-                <input type="submit" value="Confirmar"> 
+            <legend>Digite o código enviado para o seu e-mail:</legend>
+            <input type="number" name="codigo" placeholder="Código">
+            <input type="submit" value="Confirmar"> 
 
         </form>
    </ul>
