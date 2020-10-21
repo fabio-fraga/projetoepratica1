@@ -1,6 +1,6 @@
 <?php 
 
-include 'templates/header_comum.html';
+include 'templates/header.php';
 
 include 'bd.php';
 
@@ -27,6 +27,6 @@ $user = 'Olá, ' . $_SESSION['name'] . '!';
 
 <?php 
 
-include 'templates/footer_comum.html';
+include 'templates/footer.html';
 
 ?>

@@ -1,6 +1,6 @@
 <?php 
 
-include 'templates/header_comum.html';
+include 'templates/header.php';
 
 ?>
 
@@ -33,6 +33,6 @@ include 'templates/header_comum.html';
 
 <?php 
 
-include 'templates/footer_comum.html';
+include 'templates/footer.html';
 
 ?>
