@@ -1,6 +1,6 @@
-/vendor/
-/composer.lock/
-/mod_conceitual-f4all.brM3/
-/mod_conceitual-f4all2.brM3/
-/create_db.sql/
-/documentation/proposta _projeto_e_pratica_1_forum_ifpe.docx/
+vendor/
+composer.lock/
+mod_conceitual-f4all.brM3
+mod_conceitual-f4all2.brM3
+create_db.sql
+documentation/proposta _projeto_e_pratica_1_forum_ifpe.docx

@@ -27,6 +27,6 @@ $user = 'Olá, ' . $_SESSION['name'] . '!';
 
 <?php 
 
-include 'templates/footer.html';
+include 'templates/footer.php';
 
 ?>

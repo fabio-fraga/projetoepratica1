@@ -2,8 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Página de Cadastro</title>
-</head>
+    <title>Perfil</title>
   
 <?php
 
@@ -20,8 +19,6 @@ $stmt->execute([$_SESSION['login']]);
 $consulta = $stmt->fetchAll();
 
 ?>
-
-<body>
 
   <div id="div-principal-profile">
 
@@ -51,6 +48,6 @@ $consulta = $stmt->fetchAll();
 
 <?php
 
-include 'templates/footer.html';
+include 'templates/footer.php';
 
 ?>
