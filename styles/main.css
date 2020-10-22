@@ -35,7 +35,7 @@ header{
 	height: 50px;
 }
 #form-pesquisa{
-    width: 100%;
+    width: 95%;
     height: 90%;
     margin-top: 3px;
     margin-left: 22px;
@@ -45,7 +45,7 @@ header{
 }
 #form-pesquisa input{
 	background-color: #1f231e;
-  	width: 42%;
+  	width: 42.8%;
   	border: none;
   	margin: 8px 0;
   	outline: none;
@@ -62,7 +62,7 @@ header{
   	box-shadow: 0 0 8px 0 #e40000;
   	border: 1px solid #e40000;
   	border-radius: 4px;
-  	width: 100%;
+  	width: 90%;
 }
 #form-pesquisa span{
   	top: 16px;
@@ -298,7 +298,7 @@ footer{
 #div-form-profile{
 	background-color: white;
 	width: 350px;
-	height: 450px;
+	height: 500px;
 	margin: auto;
   	text-align: center;
   	border: 1.5px solid black;
