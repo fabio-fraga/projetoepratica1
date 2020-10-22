@@ -5,7 +5,7 @@ session_start();
 include 'bd.php';
 
 $email = $_POST['email'];
-$senha = $_POST['senha'];
+$senha = sha1($_POST['senha']);
 
 $stmt = $pdo->prepare("
 	SELECT * FROM USERS

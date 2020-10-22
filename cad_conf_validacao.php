@@ -13,13 +13,16 @@ if ($codigo == $_SESSION['codigo']) {
     VALUES(?, ?, ?, ?, ?, ?)
     ");
 
+$senha = sha1($_SESSION['senha']);
+
     $stmt->execute([
     	$_SESSION['nome'],
   		$_SESSION['email'],
   		$_SESSION['linkedin'],
   		$_SESSION['github'],
   		$_SESSION['birth'],
-  		$_SESSION['senha']
+      $senha
+  		
   	]);
 
     echo "Conta Confirmada!";
