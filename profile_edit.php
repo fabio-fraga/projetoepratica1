@@ -27,7 +27,10 @@ $stmt = $pdo->prepare("
   WHERE US_ID = ?
 ");
 
-$stmt->execute([$nome, $email, $linkedin, $github, $nascimento, $descricao, $senha, $uploadfile, $_SESSION['login']]);
+
+$stmt->execute([$nome, $linkedin, $github, $nascimento, $descricao, $uploadfile, $_SESSION['login']]);
+
+unset($_FILES);
 
 header('location: profile.php');
 

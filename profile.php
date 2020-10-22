@@ -29,8 +29,15 @@ $consulta = $stmt->fetchAll();
 
           <form enctype="multipart/form-data" method="POST" action="profile_edit.php">
               <h1 id="titulo-profile">Editar Informações</h1>
-              <img id="image-profile" src="<?= $consulta[$i]['US_IMAGE'] ?>">
+
+              <?php if ($consulta[$i]['US_IMAGE'] == null): ?>                
+                <img id="image-profile" src="upload/standard.png">
                 <input id="input-image" type="file" name="image">
+              <?php else: ?>
+                <img id="image-profile" src="<?= $consulta[$i]['US_IMAGE'] ?>">
+                <input id="input-image" type="file" name="image">
+              <?php endif ?>
+
               <input class="inputs-form-profile" type="text" name="name" placeholder="Nome"value="<?= $consulta[$i]['US_NAME'] ?>">
               <input class="inputs-form-profile" type="text" name="linkedin" placeholder="LinkedIn"value="<?= $consulta[$i]['US_LINKEDIN'] ?>">
               <input class="inputs-form-profile" type="text" name="github" placeholder="GitHub"value="<?= $consulta[$i]['US_GITHUB'] ?>">
