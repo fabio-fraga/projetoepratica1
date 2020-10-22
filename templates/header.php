@@ -27,6 +27,7 @@ session_start();
             <a href="logout.php" class="a-header">Sair</a></li>
           <li class="li-header"><a href="profile.php" class="a-header">Perfil</a></li>
         <?php else: ?>
+          <li class="li-header"><a href="cadastro.php" class="a-header">Cadastrar</a></li>
           <li class="li-header"><a href="login.php" class="a-header">Login</a></li>
         <?php endif ?>
 
