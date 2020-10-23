@@ -27,6 +27,41 @@ $user = 'Olá, ' . $_SESSION['name'] . '!';
 
 <?php 
 
+$stmt = $pdo->prepare("
+	SELECT * FROM TOPICS
+");
+
+$stmt->execute();
+
+$linhas = $stmt->fetchAll();
+
+$subject = $linhas[0]['TOP_SUBJECT'];
+$title = $linhas[0]['TOP_TITLE'];
+$date = $linhas[0]['TOP_DATE'];
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bem-vindo ao F4ALL!</title>
+			
+		<?php if (isset($_SESSION['login'])): ?>
+			<h1 style="margin-top: -27%; text-align: center;"><a href="create_topic.php">Criar Tópico</a></h1>
+		<?php endif ?>
+			<h1 style="text-align: center;">Tópicos</h1>
+			<table style="padding-left: 37.3%; padding-bottom: 15%">
+				<tr>
+					<th style="border: 1px solid black"><?= $subject ?></th>					
+					<td style="border: 1px solid black"><?= $title ?></td>
+					<td style="border: 1px solid black"><?= $date ?></td>
+
+				</tr>
+			</table>
+
+<?php
+
 include 'templates/footer.php';
 
 ?>
