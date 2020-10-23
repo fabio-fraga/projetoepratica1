@@ -25,8 +25,6 @@ $senha = sha1($_SESSION['senha']);
   		
   	]);
 
-    echo "Conta Confirmada!";
-
     unset($_SESSION['codigo']);
     unset($_SESSION['login']);
     unset($_SESSION['nome']);
@@ -35,6 +33,8 @@ $senha = sha1($_SESSION['senha']);
   	unset($_SESSION['github']);
   	unset($_SESSION['birth']);
   	unset($_SESSION['senha']);
+
+    header('location: login.php');
     
 } else {
     echo "Código incorreto!";
