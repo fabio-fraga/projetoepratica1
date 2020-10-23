@@ -25,9 +25,10 @@ include 'templates/header.php';
             <input type="password" name="senha" placeholder="Senha" class="inputs-form-login"/>
             <br>
             <br>
-            <input type="submit" value="Entrar" class="inputs-form-login"/>
-            </form>
         
+            <input type="submit" value="Entrar" class="inputs-form-login"/>
+            <p id="p-erro"><?=$men_erro?></p>
+            </form>
         </div>
         <br>
     
