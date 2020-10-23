@@ -1,4 +1,6 @@
-<?php
+ <?php
+
+include 'bd.php';
 
 $nome = $_POST['nome'];
 $email = $_POST['email'];
@@ -16,7 +18,21 @@ $tam_senha = false;
 $tam_nome = false;
 $report_erro = '';
 
-if (!isset($nome) || !isset($email) || !isset($birth) || !isset($senha) || !isset($conf_senha)) {
+function empty_name ($string) {
+  $array = str_split($string);
+  $cont = 0;
+  for ($i = 0; $i < sizeof($array); $i++) {
+    if ($array[$i] == ' ') {
+      $cont++;
+    }
+  }
+  if ($cont == sizeof($array)) {
+    return false;
+  }
+  return true;
+}
+
+if (empty($nome) || empty_name($nome) == false || empty($email) || empty($birth) || empty($senha) || empty($conf_senha)) {
   $erro_campos = true;
   $report_erro = 'Preencha todos os campos!';  
   include 'cadastro.php';
@@ -25,7 +41,7 @@ if (!isset($nome) || !isset($email) || !isset($birth) || !isset($senha) || !isse
 if (preg_match("/^[a-zA-Zá-úÁ-Úç ]+$/", $nome) == false) {
   if ($erro_campos == false) {
     $erro_nome = true;
-    $report_erro = 'Caracteres especiais, espaços e letras acentuadas não podem ser utilizados no campo de ID!';  
+    $report_erro = 'Caracteres especiais não podem ser utilizados no campo de ID!';  
     include 'cadastro.php'; 
   }
 }
@@ -38,6 +54,23 @@ if (strrpos($email, "@") == false) {
   }
 }
 
+$stmt = $pdo->prepare("
+  SELECT * FROM USERS
+  WHERE US_EMAIL = ?
+");
+
+$stmt->execute([$email]);
+
+$linhas = $stmt->fetchAll();
+
+if($email == $linhas[0]['US_EMAIL']){
+  if ($erro_campos == false && $erro_nome == false){
+  $erro_email = true;
+  $report_erro ="E-mail já cadastrado!";
+  include'cadastro.php';
+}
+
+}
 if (strlen($nome) > 64) {
   if ($erro_campos == false && $erro_nome == false && $erro_email == false) {
     $tam_nome = true;
