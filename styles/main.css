@@ -35,7 +35,7 @@ header{
 	height: 50px;
 }
 #form-pesquisa{
-    width: 95%;
+    width: 50%;
     height: 90%;
     margin-top: 3px;
     margin-left: 22px;
@@ -256,6 +256,59 @@ footer{
   	border: 1px solid black;
   	border-radius: 4px;
 }
+/*pagina de confirmação de cadastro*/
+#div-principal-confirmacao-cadastro{
+	background-image: url(/img/Background.png);
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	padding-top: 80px;
+	padding-bottom: 67px;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    width: 100%;
+}
+#div-lista-confirmacao{
+	background-color: white;
+	width: 350px;
+	height: 350px;
+	margin: auto;
+  	text-align: center;
+  	border: 1.5px solid black;
+  	border-radius: 20px;
+}
+#div-lista-confirmacao ul{
+	list-style: none;
+	padding: 0px 20px;
+}
+#div-lista-confirmacao li{
+	padding: 10px;
+}
+#titulo-confirmacao{
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#div-form-confirmacao{
+	margin: 10px auto;
+	width: 350px;
+	height: 80px;
+	text-align: center;
+  	border: 1.5px solid black;
+  	border-radius: 20px;
+}
+#div-form-confirmacao input{
+	margin: 10px auto;
+}
+#codigo{
+	height: 24px;
+}
+
+
 #msg-para-login{
 	text-align: center;
 	font-family: 'Ubuntu', sans-serif;
