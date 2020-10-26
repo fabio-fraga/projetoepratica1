@@ -95,21 +95,44 @@ $con_pub = $stmt->fetchAll();
 			<td style="border: 1px solid black"><?=$consulta[$i]['TOP_DATE']?></td>
 
 		</table>
+<?php 
 
-		<form action="cometario.php" method="POST" style="width: 100vw;
+	$stmt = $pdo->prepare("
+	SELECT * FROM COMMENTS WHERE COM_TOP_ID = ?
+");
+
+$stmt->execute([$consulta[$i]['TOP_ID']]);
+
+$consulta_com = $stmt->fetchAll();
+
+
+
+?>
+	<?php for($j= 0; $j < sizeof($consulta_com); $j++): ?>
+		<table style="text-align: center">
+			
+			<th> <?php var_dump($consulta_com[$j]["COM_CONTENT"]); ?></th>
+		</table>
+
+		<?php endfor ?>
+
+
+		<form action="comentario.php" method="POST" style="width: 100vw;
          height: 10vh;
          display: flex;
          flex-direction: row;
          justify-content: center;
          align-items: center; margin-bottom: 5%;">
 
-				<input type="text" name="cometario" placeholder="Escreva um comentario...">
+				<input type="text" name="comentario" placeholder="Escreva um comentario...">
+				<input type="hidden" name="id_post" value="<?=$consulta[$i]['TOP_ID']?>" >
 				<input type="submit" value="Comentar">	
 
 		</form>
-		
 
 	</div>
+	
+
 		
 		<?php endfor ?>
 
