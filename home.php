@@ -44,7 +44,7 @@ $user = $_SESSION['name'];
 
 
 		<?php if (isset($_SESSION['login'])): ?>
-			<h1>Criar Tópico</a></h1>
+			<h1><a href="pub.php">Criar Tópico</a></h1>
 
 		<?php endif ?>
 
