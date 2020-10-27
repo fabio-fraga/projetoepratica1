@@ -54,17 +54,50 @@ $con_pub = $stmt->fetchAll();
 			<td> <?=$consulta[$i]['TOP_SUBJECT']?></td>
 
 		</table>
+
+<?php 
+
+	$stmt = $pdo->prepare("
+	SELECT * FROM COMMENTS WHERE COM_TOP_ID = ?
+");
+
+$stmt->execute([$consulta[$i]['TOP_ID']]);
+
+$consulta_com = $stmt->fetchAll();
+
+
+
+?>
+
+
+	<?php for($j= 0; $j < sizeof($consulta_com); $j++): ?>
+			<?php 
+
+			$stmt = $pdo->prepare("
+
+				SELECT * FROM USERS WHERE US_ID = ?
+			");
+
+			$stmt->execute([$consulta_com[$j]['COM_US_ID']]);
+
+			$con_don = $stmt->fetchAll();
+ ?> 
+		<table style="text-align: center">
 		
-		<table>
+
+			<th><?= $con_don[0]['US_NAME'] . ':'; ?></th> 
 			
-		<th>Comentario</th>
+			<th> <?= $consulta_com[$j]["COM_CONTENT"]?></th>
+		
 
+		<?php endfor ?>
 
-		</table>
+	</table>
 
-		<form action="cometario.php" method="POST">
+		<form action="comentario.php" method="POST">
 
-				<input type="text" name="cometario" placeholder="Escreva um comentario...">
+				<input type="text" name="comentario" placeholder="Escreva um comentario...">
+				<input type="hidden" name="id_post" value="<?=$consulta[$i]['TOP_ID']?>" >
 				<input type="submit" value="Comentar">	
 
 		</form>
@@ -72,5 +105,7 @@ $con_pub = $stmt->fetchAll();
 
 	</div>
 		<?php endfor ?>
+
+		<a href="/">Home</a>
 </body>
 </html>

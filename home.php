@@ -109,9 +109,21 @@ $consulta_com = $stmt->fetchAll();
 
 ?>
 	<?php for($j= 0; $j < sizeof($consulta_com); $j++): ?>
+		<?php 
+
+			$stmt = $pdo->prepare("
+
+				SELECT * FROM USERS WHERE US_ID = ?
+			");
+
+			$stmt->execute([$consulta_com[$j]['COM_US_ID']]);
+
+			$con_don = $stmt->fetchAll();
+ ?> 
+
 		<table style="text-align: center">
-			<th> <?php  ?> </th>
-			<td> <?php var_dump($consulta_com[$j]["COM_CONTENT"]); ?></td>
+				<th><?= $con_don[0]['US_NAME'] . ':'; ?></th> 
+			<td> <?= $consulta_com[$j]["COM_CONTENT"]; ?></td>
 		</table>
 
 		<?php endfor ?>
