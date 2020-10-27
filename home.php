@@ -1,21 +1,8 @@
 <?php 
- 
- 	include 'bd.php';
 
-	session_start();
- 
-?>
+session_start();
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Bem-vindo ao F4ALL!</title>
-<?php 
-
-include 'templates/header.php';
-
+include 'bd.php';
 
 $stmt = $pdo->prepare("
 	SELECT * FROM USERS
@@ -28,84 +15,88 @@ $linhas = $stmt->fetchAll();
 
 $_SESSION['name'] = $linhas[0]['US_NAME'];
 
-$user = 'Olá, ' . $_SESSION['name'] . '!';
-
-
-?>
-
-
-<?php if (isset($_SESSION['login'])): ?>
-	<h1 style="text-align: center; margin: auto; padding-top: 10%; padding-bottom: 32.9%"><?= $user ?></h1>
-
-<?php else: ?>
-	<h1 style="text-align: center; margin: auto; padding-top: 10%; padding-bottom: 5%">Olá!</h1>
-
-<?php endif ?>
-
-
-<?php if (isset($_SESSION['login'])): ?>
-
-			<h1 style="margin-top: -27%; text-align: center;"><a href="pub.php">Criar Tópico</a></h1>
-
-<?php endif ?>
-
-
-
-<?php 
-$stmt = $pdo->prepare("
-  SELECT * FROM TOPICS ORDER BY TOP_DATE DESC
-");
-
-$stmt->execute();
-$consulta = $stmt->fetchAll();
+$user = $_SESSION['name'];
 
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bem-vindo ao F4ALL!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<?php for ($i = 0; $i < sizeof($consulta); $i++): ?>
+	<?php include 'templates/header.php'; ?>
+
+</head>
+
+<body>
+
+	<main>
+
+		<?php if (isset($_SESSION['login'])): ?>
+			<h1><?= 'Olá, ' . $user  . '!' ?></h1>
+
+		<?php else: ?>
+			<h1>Olá!</h1>
+
+		<?php endif ?>
+
+
+		<?php if (isset($_SESSION['login'])): ?>
+			<h1>Criar Tópico</a></h1>
+
+		<?php endif ?>
+
+		<?php 
+
+		$stmt = $pdo->prepare("
+		  SELECT * FROM TOPICS ORDER BY TOP_DATE DESC
+		");
+
+		$stmt->execute();
+		$consulta = $stmt->fetchAll();
+
+		?>
+
+
+		<?php for ($i = 0; $i < sizeof($consulta); $i++): ?>
 		
 
-<?php 
+		<?php 
 
-$stmt = $pdo->prepare("
-	SELECT * FROM USERS WHERE US_ID = ?
-");
+		$stmt = $pdo->prepare("
+			SELECT * FROM USERS WHERE US_ID = ?
+		");
 
-$stmt->execute([$consulta[$i]['TOP_US_ID']]);
+		$stmt->execute([$consulta[$i]['TOP_US_ID']]);
 
-$con_pub = $stmt->fetchAll();
+		$con_pub = $stmt->fetchAll();
 
- ?>  
+ 		?>  
 
-	<div style="border: 1px solid black; margin-bottom: 2%; ">
+		<div>
 
+			<table>
 
-	<table style="width: 100vw;
-         height: 10vh;
-         display: flex;
-         flex-direction: row;
-         justify-content: center;
-         align-items: center">
+         		<th><?=$con_pub[0]['US_NAME'] . ':'?></th> 
 
-        
+				<th><a href="discussao.php"><?=$consulta[$i]['TOP_TITLE']?></a></th> 
 
-         	<th><?=$con_pub[0]['US_NAME'] . ':'?></th> 
+				<td > <?=$consulta[$i]['TOP_SUBJECT']?></td>
 
-			<th style="border: 1px solid black"><a href="discussao.php"><?=$consulta[$i]['TOP_TITLE']?></a></th> 
+				<td><?=$consulta[$i]['TOP_DATE']?></td>
 
-			<td style="border: 1px solid black"> <?=$consulta[$i]['TOP_SUBJECT']?></td>
+			</table>
 
-			<td style="border: 1px solid black"><?=$consulta[$i]['TOP_DATE']?></td>
-
-		</table>
-
-	</div>
-	
+		</div>
+		
 		<?php endfor ?>
 
+	</main>
 
-<?php
+	<?php include 'templates/footer.php'; ?>
 
-include 'templates/footer.php';
+</body>
 
-?>
+</html>

@@ -1,18 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: url(/img/Background.png);
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
 #geral {
   margin: 0;
   padding-top: 62px;
@@ -61,7 +48,7 @@ h2{
   font-family: 'Ubuntu', sans-serif;
 }
 
-img{
+.img-sobre{
   width: 100%;
 }
 

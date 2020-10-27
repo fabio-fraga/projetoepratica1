@@ -15,7 +15,7 @@ include 'templates/header.php';
     
     <div class="column">
       <div class="card">
-        <img src="/img/help.jpg">
+        <img id="img-ajuda" src="/img/help.jpg">
         <div class="container">
           <h1 id="ajuda-instruções">Ajuda/Instruções:</h1>
               <p class="p-ajuda">
