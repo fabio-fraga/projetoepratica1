@@ -110,8 +110,8 @@ $consulta_com = $stmt->fetchAll();
 ?>
 	<?php for($j= 0; $j < sizeof($consulta_com); $j++): ?>
 		<table style="text-align: center">
-			
-			<th> <?php var_dump($consulta_com[$j]["COM_CONTENT"]); ?></th>
+			<th> <?php  ?> </th>
+			<td> <?php var_dump($consulta_com[$j]["COM_CONTENT"]); ?></td>
 		</table>
 
 		<?php endfor ?>
@@ -124,7 +124,23 @@ $consulta_com = $stmt->fetchAll();
          justify-content: center;
          align-items: center; margin-bottom: 5%;">
 
-				<input type="text" name="comentario" placeholder="Escreva um comentario...">
+				<input type="text" name="comentario" 
+
+				<?php if(isset($_SESSION['login'])):?>
+
+				placeholder="Escreva um comentario..." 	
+
+
+				<?php  else:?>
+
+						placeholder="Faça login para comentar"
+
+
+					<?php endif ?>
+					
+
+					>
+
 				<input type="hidden" name="id_post" value="<?=$consulta[$i]['TOP_ID']?>" >
 				<input type="submit" value="Comentar">	
 
