@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <?php
 
@@ -10,36 +11,54 @@ include 'templates/header.php';
 
 ?>
 
-    <div id="div-principal-cadastro">
+</head>
 
-        <h1 id="msg-boas-vindas">Ficou em dúvida sobre como responder determinada questão? Crie tópicos, responda perguntas e interaja com a comunidade do <span id="msg-forum">Fórum</span> <span id="msg-forall">For All</span> !</h1>
+<body>
+
+    <main>
+
+        <h1 class="text-center">Ficou em dúvida sobre como responder determinada questão? Cadastre-se para criar tópicos, responder perguntas e interagir com a comunidade do Fórum For All!</h1>
         
-        <div id="div-form-cadastro">
+        <div class="container mb-2">
             
-        <form action="cad_validacao.php" method="POST">
+            <form class="form-signin text-center border border-light p-5" action="cad_validacao.php" method="POST">
 
-            <h1 id="titulo-cadastro">Cadastro</h1>
-            <input type="text" name="nome" placeholder="Nome de usuário - ID" id="input-nome">
-            <input type="text" name="email" placeholder="Endereço de e-mail" class="inputs-form-cadastro">
-            <input type="text" name="linkedin" placeholder="Endereço do seu LinkedIn" class="inputs-form-cadastro">
-            <input type="text" name="github" placeholder="Endereço do seu GitHub" class="inputs-form-cadastro">
-            <input type="date" name="birth" placeholder="Data do seu nascimento" class="inputs-form-cadastro">        
-            <input type="password" name="senha" placeholder="Senha" class="inputs-form-cadastro"> 
-            <input type="password" name="redigitar_senha" placeholder="Digite a senha novamente" class="inputs-form-cadastro">
-            <input type="submit" value="Registrar" class="inputs-form-cadastro">
+                <p class="h4 mb-4">Cadastro</p>
 
-        </form>
+                <input class="form-control mb-4" type="text" name="nome" placeholder="Nome de usuário - ID">
+                <p class="text-danger text-left mt-n3 ml-1">(Campo obrigatório)</p>
+                <input class="form-control mb-4" type="text" name="email" placeholder="Endereço de e-mail">
+                <p class="text-danger text-left mt-n3 ml-1">(Campo obrigatório)</p>
+                <input class="form-control mb-4" type="text" name="linkedin" placeholder="Endereço do seu LinkedIn">
+                <p class="text-left mt-n3 ml-1">(Campo opcional)</p>
+                <input class="form-control mb-4" type="text" name="github" placeholder="Endereço do seu GitHub">
+                <p class="text-left mt-n3 ml-1">(Campo opcional)</p>
+                <input class="form-control mb-4" type="date" name="birth" placeholder="Data do seu nascimento">
+                <p class="text-danger text-left mt-n3 ml-1">(Campo obrigatório)</p>       
+                <input class="form-control mb-4" type="password" name="senha" placeholder="Senha">
+                <p class="text-danger text-left mt-n3 ml-1">(Campo obrigatório)</p>
+                <input class="form-control mb-4" type="password" name="redigitar_senha" placeholder="Digite a senha novamente">
+                <p class="text-danger text-left mt-n3 ml-1">(Campo obrigatório)</p>
 
-        <p id="p-erro"><?=$report_erro?></p>
-  
-        </div>
+                <p class="text-danger"><strong><?=$report_erro?></strong></p>
+
+                <input class="btn btn-info btn-block" type="submit" value="Registrar" class="inputs-form-cadastro">
+
+            </form>
+
+            </div>
     
-        <h1 id="msg-para-login">Já possui uma conta? <a href="/">Faça login</a>!</h1>
+            <h1 class="text-center">Já possui uma conta? <a href="/">Faça login</a>!</h1>
 
-    </div>
+        </div>
    
+    </main>
+
 <?php 
 
 include 'templates/footer.php';
 
 ?>
+
+</body>
+</html>

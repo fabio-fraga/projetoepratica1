@@ -3,38 +3,42 @@
 <head>
     <meta charset="utf-8">
     <title>Fórum For All - Página Inicial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<?php
+    <?php include 'templates/header.php'; ?>
 
-include 'templates/header.php';
+</head>
 
-?>
+<body>
 
-    <div id="div-principal-login">
-
-        <h1 id="msg-boas-vindas">Ficou em dúvida sobre como responder determinada questão? Crie tópicos, responda perguntas e interaja com a comunidade do <span id="msg-forum">Fórum</span>    <span id="msg-forall">For All</span> !</h1>
-        
-        <div id="div-form-login">
-        
-            <form action="login_validacao.php" method="POST">
-
-            <h1 id="titulo-login">Login</h1>
-            <input type="text" name="email" placeholder="Endereço de e-mail" id="input-email"/> 
-            <br>
-            <br>		       										
-            <input type="password" name="senha" placeholder="Senha" class="inputs-form-login"/>
-            <br>
-            <br>
-        
-            <input type="submit" value="Entrar" class="inputs-form-login"/>
-            <p id="p-erro"><?=$men_erro?></p>
-            </form>
-        </div>
-        <br>
+<main>
     
-        <h1 id="msg-cadastre-se">Não possui uma conta? <a href="cadastro.php">Cadastre-se</a>!</h1>
+    <h1 class="text-center mx-5 mb-3">Ficou em dúvida sobre como responder determinada questão? Faça login para criar tópicos, responder perguntas e interagir com a comunidade do Fórum For All!</h1>       
+    
+    <div class="container mb-2">
+    
+        <form class="form-signin text-center border border-light p-5" action="login_validacao.php" method="POST">
+
+            <p class="h4 mb-4">Login</p>
+
+            <input type="text" name="email" placeholder="Endereço de e-mail" class="form-control mb-4">
+            <input type="password" name="senha" placeholder="Senha" class="form-control mb-4">
+
+            <p class="text-danger"><strong><?=$men_erro?></strong></p>
+
+            <input class="btn btn-info btn-block" type="submit" value="Entrar">
+
+            </form>
+   
+        </div>
+    
+    <h1 class="text-center">Não possui uma conta? <a href="cadastro.php">Cadastre-se</a>!</h1>   
 
     </div>
+
+</main>
+
+</body>
 
 <?php
 

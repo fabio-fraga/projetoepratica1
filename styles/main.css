@@ -1,11 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
 body, html {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+div {
+	word-wrap: break-word;
+}
 
 main {
-	margin-top: 8.1%;
-	margin-bottom: 7.5%;
-	height: 27.3vw;
+	margin-top: 100px;
+	margin-bottom: 2.5%;
 }
+
+#img-ajuda {
+	height: 350px;
+}
+
+.title {
+  color: #1D3D08 ;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+p{
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+h1, h2{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.img-sobre{
+  width: 100%;
+}
+
+.LinkedIn{
+  width: 40%;
+}
+
+.column {
+	width: 25%;
+	padding: 10px;
+}
+

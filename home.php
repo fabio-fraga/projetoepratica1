@@ -4,19 +4,6 @@ session_start();
 
 include 'bd.php';
 
-$stmt = $pdo->prepare("
-	SELECT * FROM USERS
-	WHERE US_ID = ?
-");
-
-$stmt->execute([$_SESSION['login'],]);
-
-$linhas = $stmt->fetchAll();
-
-$_SESSION['name'] = $linhas[0]['US_NAME'];
-
-$user = $_SESSION['name'];
-
 ?>
 
 <!DOCTYPE html>
@@ -34,17 +21,34 @@ $user = $_SESSION['name'];
 
 	<main>
 
+		<?php 
+
+		$stmt = $pdo->prepare("
+		SELECT * FROM USERS
+		WHERE US_ID = ?
+		");
+
+		$stmt->execute([$_SESSION['login'],]);
+
+		$linhas = $stmt->fetchAll();
+
+		$_SESSION['name'] = $linhas[0]['US_NAME'];
+
+		$user = $_SESSION['name'];
+
+		?>
+
 		<?php if (isset($_SESSION['login'])): ?>
-			<h1><?= 'Olá, ' . $user  . '!' ?></h1>
+			<h1 class="text-center mb-4"><strong><?= 'Olá, ' . $user  . '!' ?></strong></h1>
 
 		<?php else: ?>
-			<h1>Olá!</h1>
+			<h1 class="text-center mb-4"><strong>Olá! Confira os últimos tópicos! :)</strong></h1>
 
 		<?php endif ?>
 
 
 		<?php if (isset($_SESSION['login'])): ?>
-			<h1><a href="pub.php">Criar Tópico</a></h1>
+			<h1 class="text-center mt-n3 mb-3"><strong><a href="pub.php">Criar Tópico</a></strong></h1>
 
 		<?php endif ?>
 
@@ -59,10 +63,8 @@ $user = $_SESSION['name'];
 
 		?>
 
-
 		<?php for ($i = 0; $i < sizeof($consulta); $i++): ?>
 		
-
 		<?php 
 
 		$stmt = $pdo->prepare("
@@ -73,21 +75,22 @@ $user = $_SESSION['name'];
 
 		$con_pub = $stmt->fetchAll();
 
- 		?>  
+ 		?> 
 
-		<div>
+ 		<div class="container mb-1 border border-dark">
 
-			<table>
-
-         		<th><?=$con_pub[0]['US_NAME'] . ':'?></th> 
-
-				<th><a href="discussao.php"><?=$consulta[$i]['TOP_TITLE']?></a></th> 
-
-				<td > <?=$consulta[$i]['TOP_SUBJECT']?></td>
-
-				<td><?=$consulta[$i]['TOP_DATE']?></td>
-
-			</table>
+  			<div class="row justify-content-center no-gutters">
+    			<div class="col-12 text-center mt3 pt-3"><strong><a href="discussao.php">Título: <?=$consulta[$i]['TOP_TITLE']?></strong></a></div>
+  			</div>		
+  			<div class="row justify-content-center no-gutters">
+    			<div class="col-12 text-center offset">Assunto: <?=$consulta[$i]['TOP_SUBJECT']?></div>
+  			</div>
+  			<div  class="row justify-content-center no-gutters">
+    			<div class="col-12 text-center">Criador: <?=$con_pub[0]['US_NAME']?></div>
+  			</div>
+  			<div class="row justify-content-center no-gutters">
+    			<div class="col-12 text-center mb-3">Criado em: <?= date('d/m/Y H:m:s', strtotime($consulta[$i]['TOP_DATE'])) ?></div>
+  			</div>
 
 		</div>
 		
