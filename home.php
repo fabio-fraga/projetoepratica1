@@ -52,10 +52,12 @@ include 'bd.php';
 
 		<?php endif ?>
 
-		<?php 
+		<?php
 
 		$stmt = $pdo->prepare("
-		  SELECT * FROM TOPICS ORDER BY TOP_DATE DESC
+		  SELECT * FROM TOPICS
+          LEFT JOIN USERS ON US_ID = TOP_US_ID
+          ORDER BY TOP_DATE DESC
 		");
 
 		$stmt->execute();
@@ -64,29 +66,17 @@ include 'bd.php';
 		?>
 
 		<?php for ($i = 0; $i < sizeof($consulta); $i++): ?>
-		
-		<?php 
 
-		$stmt = $pdo->prepare("
-			SELECT * FROM USERS WHERE US_ID = ?
-		");
-
-		$stmt->execute([$consulta[$i]['TOP_US_ID']]);
-
-		$con_pub = $stmt->fetchAll();
-
- 		?> 
-
- 		<div class="container mb-1 border border-dark"><a style="color: black" href="discussao.php">
+ 		<div class="container mb-1 border border-dark"><a style="color: black" href="discussao.php?id=<?=$consulta[$i]['TOP_ID'] ?>">
 
   			<div class="row justify-content-center no-gutters">
     			<div class="col-12 text-center mt3 pt-3"><strong>Título: <?=$consulta[$i]['TOP_TITLE']?></strong></div>
-  			</div>		
+  			</div>
   			<div class="row justify-content-center no-gutters">
     			<div class="col-12 text-center offset">Assunto: <?=$consulta[$i]['TOP_SUBJECT']?></div>
   			</div>
   			<div  class="row justify-content-center no-gutters">
-    			<div class="col-12 text-center">Criador: <?=$con_pub[0]['US_NAME']?></div>
+    			<div class="col-12 text-center">Criador: <?=$consulta[$i]['US_NAME']?></div>
   			</div>
   			<div class="row justify-content-center no-gutters">
     			<div class="col-12 text-center mb-3">Criado em: <?= date('d/m/Y H:m:s', strtotime($consulta[$i]['TOP_DATE'])) ?></div>

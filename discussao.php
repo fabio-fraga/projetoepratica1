@@ -1,16 +1,23 @@
-<?php 
- 
+<?php
+
  	include 'bd.php';
 
 	session_start();
- 
+
+    $id = $_GET['id'] ?? false;
+
+    if ($id === false) {
+        header('location: home.php');
+        exit();
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Bem-vindo ao F4ALL!</title>
-<?php 
+<?php
 
 include 'templates/header.php';
 
@@ -31,32 +38,37 @@ $user = 'Olá, ' . $_SESSION['name'] . '!';
 
 ?>
 
-<?php 
+<?php
 $stmt = $pdo->prepare("
-  SELECT * FROM TOPICS ORDER BY TOP_DATE DESC
+  SELECT * FROM TOPICS WHERE TOP_ID = ?
 
 ");
 
-$stmt->execute();
+$stmt->execute([$id]);
 $consulta = $stmt->fetchAll();
+
+if (sizeof($consulta) == 0) {
+    header('location: home.php');
+    exit();
+}
+
+$topico = $consulta[0];
 
 ?>
 
 
-<?php for ($i = 0; $i < sizeof($consulta); $i++): ?>
-		
 
-<?php 
+    <?php
 
-$stmt = $pdo->prepare("
-	SELECT * FROM USERS WHERE US_ID = ?
-");
+    $stmt = $pdo->prepare("
+    	SELECT * FROM USERS WHERE US_ID = ?
+    ");
 
-$stmt->execute([$consulta[$i]['TOP_US_ID']]);
+    $stmt->execute([$topico['TOP_US_ID']]);
 
-$con_pub = $stmt->fetchAll();
+    $con_pub = $stmt->fetchAll();
 
- ?>  
+     ?>
 
 	<div style="border: 1px solid black; margin-bottom: 2%; ">
 
@@ -68,32 +80,32 @@ $con_pub = $stmt->fetchAll();
          justify-content: center;
          align-items: center">
 
-        
 
-         	<th><?=$con_pub[0]['US_NAME'] . ':'?></th> 
 
-			<th style="border: 1px solid black"><?=$consulta[$i]['TOP_TITLE']?></th> 
+         	<th><?=$con_pub[0]['US_NAME'] . ':'?></th>
 
-			<td style="border: 1px solid black"> <?=$consulta[$i]['TOP_SUBJECT']?></td>
+			<th style="border: 1px solid black"><?=$topico['TOP_TITLE']?></th>
 
-			<td style="border: 1px solid black"><?=$consulta[$i]['TOP_DATE']?></td>
+			<td style="border: 1px solid black"> <?=$topico['TOP_SUBJECT']?></td>
+
+			<td style="border: 1px solid black"><?=$topico['TOP_DATE']?></td>
 
 		</table>
-<?php 
+    <?php
 
-	$stmt = $pdo->prepare("
-	SELECT * FROM COMMENTS WHERE COM_TOP_ID = ?
-");
+    	$stmt = $pdo->prepare("
+    	SELECT * FROM COMMENTS WHERE COM_TOP_ID = ?
+    ");
 
-$stmt->execute([$consulta[$i]['TOP_ID']]);
+    $stmt->execute([$topico['TOP_ID']]);
 
-$consulta_com = $stmt->fetchAll();
+    $consulta_com = $stmt->fetchAll();
 
 
 
-?>
+    ?>
 	<?php for($j= 0; $j < sizeof($consulta_com); $j++): ?>
-		<?php 
+		<?php
 
 			$stmt = $pdo->prepare("
 
@@ -103,48 +115,46 @@ $consulta_com = $stmt->fetchAll();
 			$stmt->execute([$consulta_com[$j]['COM_US_ID']]);
 
 			$con_don = $stmt->fetchAll();
- ?> 
+        ?>
 
 		<table style="text-align: center">
-			<th><?= $con_don[0]['US_NAME'] . ':'; ?></th> 
+			<th><?= $con_don[0]['US_NAME'] . ':'; ?></th>
 			<td> <?= $consulta_com[$j]["COM_CONTENT"]; ?></td>
 		</table>
 
-		<?php endfor ?>
+	<?php endfor ?>
 
 
-		<form action="comentario.php" method="POST" style="width: 100vw;
-         height: 10vh;
-         display: flex;
-         flex-direction: row;
-         justify-content: center;
-         align-items: center; margin-bottom: 5%;">
+	<form action="comentario.php" method="POST" style="width: 100vw;
+     height: 10vh;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center; margin-bottom: 5%;">
 
-				<input type="text" name="comentario" 
+			<input type="text" name="comentario"
 
-				<?php if(isset($_SESSION['login'])):?>
+			<?php if(isset($_SESSION['login'])):?>
 
-				placeholder="Escreva um comentario..." 	
-
-
-				<?php  else:?>
-
-						placeholder="Faça login para comentar"
+			placeholder="Escreva um comentario..."
 
 
-					<?php endif ?>
-					
+			<?php  else:?>
 
-					>
+					placeholder="Faça login para comentar"
 
-				<input type="hidden" name="id_post" value="<?=$consulta[$i]['TOP_ID']?>" >
-				<input type="submit" value="Comentar">	
 
-		</form>
+				<?php endif ?>
 
-	</div>	
-		
-		<?php endfor ?>
+
+				>
+
+			<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
+			<input type="submit" value="Comentar">
+
+	</form>
+
+	</div>
 
 <?php
 
