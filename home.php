@@ -77,10 +77,10 @@ include 'bd.php';
 
  		?> 
 
- 		<div class="container mb-1 border border-dark">
+ 		<div class="container mb-1 border border-dark"><a style="color: black" href="discussao.php">
 
   			<div class="row justify-content-center no-gutters">
-    			<div class="col-12 text-center mt3 pt-3"><strong><a href="discussao.php">Título: <?=$consulta[$i]['TOP_TITLE']?></strong></a></div>
+    			<div class="col-12 text-center mt3 pt-3"><strong>Título: <?=$consulta[$i]['TOP_TITLE']?></strong></div>
   			</div>		
   			<div class="row justify-content-center no-gutters">
     			<div class="col-12 text-center offset">Assunto: <?=$consulta[$i]['TOP_SUBJECT']?></div>
@@ -92,6 +92,7 @@ include 'bd.php';
     			<div class="col-12 text-center mb-3">Criado em: <?= date('d/m/Y H:m:s', strtotime($consulta[$i]['TOP_DATE'])) ?></div>
   			</div>
 
+  		</a>
 		</div>
 		
 		<?php endfor ?>
