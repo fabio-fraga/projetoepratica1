@@ -18,14 +18,14 @@ include 'templates/header.php';
     <main>
 
         <h1 class="text-center">Ficou em dúvida sobre como responder determinada questão? Cadastre-se para criar tópicos, responder perguntas e interagir com a comunidade do Fórum For All!</h1>
-        
+
         <div class="container mb-2">
-            
+
             <form class="form-signin text-center border border-light p-5" action="cad_validacao.php" method="POST">
 
                 <p class="h4 mb-4">Cadastro</p>
 
-                <input class="form-control mb-4" type="text" name="nome" placeholder="Nome de usuário - ID">
+                <input class="form-control mb-4" type="text" name="nome" placeholder="Nome de usuário - ID" value="<?= $_POST['nome'] ?? '' ?>">
                 <p class="text-danger text-left mt-n3 ml-1">(Campo obrigatório)</p>
                 <input class="form-control mb-4" type="text" name="email" placeholder="Endereço de e-mail">
                 <p class="text-danger text-left mt-n3 ml-1">(Campo obrigatório)</p>
