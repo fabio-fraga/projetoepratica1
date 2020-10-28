@@ -132,25 +132,29 @@ $topico = $consulta[0];
      justify-content: center;
      align-items: center; margin-bottom: 5%;">
 
-			<input type="text" name="comentario"
+
+			
 
 			<?php if(isset($_SESSION['login'])):?>
 
-			placeholder="Escreva um comentario..."
+			 <input type="text" name="comentario" placeholder="Escreva um comentario...">
+			 <input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
+			<input type="submit" value="Comentar">
 
 
 			<?php  else:?>
-
-					placeholder="Faça login para comentar"
+					
+				<a href="cadastro.php">	<input type="text" name="comentario" placeholder="Faça login para comentar">
+				<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
+			<input type="submit" value="Comentar"></a>
 
 
 				<?php endif ?>
 
 
-				>
+				
 
-			<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
-			<input type="submit" value="Comentar">
+			
 
 	</form>
 

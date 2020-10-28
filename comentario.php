@@ -1,6 +1,8 @@
 <?php 
 session_start();
 
+$id = $_GET['id'];
+
 include 'bd.php';
 
 $comentario = $_POST['comentario'];
@@ -17,12 +19,17 @@ VALUES (?,?,?,?)
 
 $stmt->execute([$comentario, $date, $user, $topic]);
  
- var_dump($comentario, $date, $user, $topic);
 
+ var_dump($id);
 
+	if(isset($_SESSION['login'])){
 
-header('location: home.php')
+		header('location: home.php');
+}
+else{
+	header('location: cadastro.php');
 
+}
 
 
 
