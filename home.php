@@ -84,7 +84,7 @@ include 'bd.php';
   					<img class="img-topics img-fluid ml-n4 rounded" src="<?= $con_pub[0]['US_IMAGE'] ?>">
   				</div>
     			<div class="col-7 text-left ml-n5 pt-3"><strong><?= $con_pub[0]['US_NAME'] ?></strong></div>
-    			<div class="col-3 text-left pt-3">Criado em: <?= date('d/m/Y H:m:s', strtotime($consulta[$i]['TOP_DATE'])) ?></div>
+    			<div class="col-3 text-left pt-3">Criado <time class="timeago" datetime="<?= date('Y-m-d H:m:s', strtotime($consulta[$i]['TOP_DATE'])) ?>"></time></div>
     			<div class="col-1">
     				<a href="#"><img class="w-50 pt-3" src="img/trash.png"></a>
     			</div>
