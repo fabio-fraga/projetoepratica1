@@ -21,7 +21,7 @@
 
             <p class="h4 mb-4">Login</p>
 
-            <input type="text" name="email" placeholder="Endereço de e-mail" class="form-control mb-4">
+            <input type="text" name="login_user" placeholder="Usuario ou E-mail" class="form-control mb-4">
             <input type="password" name="senha" placeholder="Senha" class="form-control mb-4">
 
             <p class="text-danger"><strong><?=$men_erro?></strong></p>

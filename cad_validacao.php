@@ -56,10 +56,11 @@ if (strrpos($email, "@") == false) {
 
 $stmt = $pdo->prepare("
   SELECT * FROM USERS
-  WHERE US_EMAIL = ?
+  WHERE US_EMAIL = ? OR US_NAME = ?
 ");
 
-$stmt->execute([$email]);
+$stmt->execute([$email, $nome]);
+
 
 $linhas = $stmt->fetchAll();
 
@@ -68,8 +69,14 @@ if($email == $linhas[0]['US_EMAIL']){
   $erro_email = true;
   $report_erro ="E-mail já cadastrado!";
   include'cadastro.php';
+  }
 }
-
+if($nome == $linhas[0]['US_NAME']){
+  if ($erro_campos == false && $erro_nome == false){
+  $erro_nome = true;
+  $report_erro ="Usuario já cadastrado!";
+  include'cadastro.php';
+  }
 }
 if (strlen($nome) > 64) {
   if ($erro_campos == false && $erro_nome == false && $erro_email == false) {
