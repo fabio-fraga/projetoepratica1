@@ -77,22 +77,28 @@ include 'bd.php';
 
  		?> 
 
- 		<div class="container mb-1 border border-dark"><a style="color: black" href="discussao.php">
+ 		<div class="container mb-3 shadow border border-light rounded">
 
-  			<div class="row justify-content-center no-gutters">
-    			<div class="col-12 text-center mt3 pt-3"><strong>Título: <?=$consulta[$i]['TOP_TITLE']?></strong></div>
+  			<div class="row justify-content-center ml-4">
+  				<div class="col-1 pt-3">
+  					<img class="img-topics img-fluid ml-n4 rounded" src="<?= $con_pub[0]['US_IMAGE'] ?>">
+  				</div>
+    			<div class="col-7 text-left ml-n5 pt-3"><strong><?= $con_pub[0]['US_NAME'] ?></strong></div>
+    			<div class="col-3 text-left pt-3">Criado em: <?= date('d/m/Y H:m:s', strtotime($consulta[$i]['TOP_DATE'])) ?></div>
+    			<div class="col-1">
+    				<a href="#"><img class="w-50 pt-3" src="img/trash.png"></a>
+    			</div>
+  			</div>
+  			<div class="row justify-content-center ml-4">
+    			<div class="col-10 text-left mt-n4 ml-n5">Título: <?=$consulta[$i]['TOP_TITLE']?></div>
   			</div>		
-  			<div class="row justify-content-center no-gutters">
-    			<div class="col-12 text-center offset">Assunto: <?=$consulta[$i]['TOP_SUBJECT']?></div>
+  			<div class="row justify-content-center ml-4">
+    			<div class="col-10 text-left ml-n5 pb-3">Assunto: <?=$consulta[$i]['TOP_SUBJECT']?></div>
   			</div>
-  			<div  class="row justify-content-center no-gutters">
-    			<div class="col-12 text-center">Criador: <?=$con_pub[0]['US_NAME']?></div>
+  			<div class="row justify-content-center ml-4">
+    			<div class="col-10 text-left ml-n5 pb-3"><a class="a-topics" href="discussao.php">Ver mais...</a></div>
   			</div>
-  			<div class="row justify-content-center no-gutters">
-    			<div class="col-12 text-center mb-3">Criado em: <?= date('d/m/Y H:m:s', strtotime($consulta[$i]['TOP_DATE'])) ?></div>
-  			</div>
-
-  		</a>
+  	
 		</div>
 		
 		<?php endfor ?>
