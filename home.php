@@ -38,17 +38,45 @@ include 'bd.php';
 
 		?>
 
-		<?php if (isset($_SESSION['login'])): ?>
-			<h1 class="text-center mb-4"><strong><?= 'Olá, ' . $user  . '!' ?></strong></h1>
-
-		<?php else: ?>
+		<?php if (!isset($_SESSION['login'])): ?>
 			<h1 class="text-center mb-4"><strong>Olá! Confira os últimos tópicos! :)</strong></h1>
-
 		<?php endif ?>
 
 
 		<?php if (isset($_SESSION['login'])): ?>
-			<h1 class="text-center mt-n3 mb-3"><strong><a href="pub.php">Criar Tópico</a></strong></h1>
+				<div class="container mb-3  border border-light rounded">
+					<form method="POST" action="topics.php"class="text-center mt-n3 mb-3">
+						<div class="row justify-content-center ml-4 mt-5">
+
+
+							<div class="col-10 text-left ml-n5 pb-3">
+								<div class="row justify-content-center ml-4">
+									<p class=" text-center">Crie Toicos e Tire Suas Dulvidas</p>
+								</div>
+							</div>
+
+							<div class="col-10 text-left ml-n5 pb-3">
+								<div class="row justify-content-center ml-4">
+									<textarea type="text" class="form-control" name="title" placeholder="Titulo do Topico." style="resize: none"></textarea>
+								</div>
+							</div>
+
+								<div class="col-10 text-left ml-n5 pb-3">
+							<div class="row justify-content-center ml-4">
+								<textarea type="text" class="form-control" name="subject" placeholder="Qual sua dulvida?" style="resize: none"></textarea>
+								</div>
+
+							</div>
+							<div class="col-10 text-left ml-n5 pb-3">
+								<div class="row justify-content-center ml-4 mb-2	">
+									<input type="submit" value="Publicar" class="btn btn-primary">
+								</div>
+
+							</div>
+
+						</div>
+					</form>
+				</div>
 
 		<?php endif ?>
 
@@ -81,9 +109,17 @@ include 'bd.php';
 
   			<div class="row justify-content-center ml-4">
   				<div class="col-1 pt-3">
-  					<img class="img-topics img-fluid ml-n4 rounded" src="<?= $con_pub[0]['US_IMAGE'] ?>">
+
+
+  					<?php if ($con_pub[0]['US_IMAGE'] == null): ?>
+                    		<img class="img-topics img-fluid ml-n4 rounded" src="upload/standard.png">
+                    <?php else: ?>
+                    		<img class="img-topics img-fluid ml-n4 rounded" src="<?= $con_pub[0]['US_IMAGE'] ?>">
+             <?php endif ?>
   				</div>
-    			<div class="col-7 text-left ml-n5 pt-3"><strong><?= $con_pub[0]['US_NAME'] ?></strong></div>
+    			<div class="col-7 text-left ml-n5 pt-3">
+    				<strong><?= $con_pub[0]['US_NAME'] ?></strong>
+    			</div>
     			<div class="col-3 text-left pt-3">Criado <time class="timeago" datetime="<?= date('Y-m-d H:m:s', strtotime($consulta[$i]['TOP_DATE'])) ?>"></time></div>
     			<div class="col-1">
     				<a href="#"><img class="w-50 pt-3" src="img/trash.png"></a>
@@ -93,10 +129,7 @@ include 'bd.php';
     			<div class="col-10 text-left mt-n4 ml-n5">Título: <?=$consulta[$i]['TOP_TITLE']?></div>
   			</div>		
   			<div class="row justify-content-center ml-4">
-    			<div class="col-10 text-left ml-n5 pb-3">Assunto: <?=$consulta[$i]['TOP_SUBJECT']?></div>
-  			</div>
-  			<div class="row justify-content-center ml-4">
-    			<div class="col-10 text-left ml-n5 pb-3"><a class="a-topics" href="discussao.php">Ver mais...</a></div>
+    			<div class="col-10 text-left ml-n5 pb-3"><a class="a-topics" href="discussao.php?id=<?=$consulta[$i]['TOP_ID'] ?>">Ver mais...</a></div>
   			</div>
   	
 		</div>
