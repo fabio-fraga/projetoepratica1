@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-$id = $_GET['id'];
+$id = $_POST['id_post'];
 
 include 'bd.php';
 
@@ -24,7 +24,7 @@ $stmt->execute([$comentario, $date, $user, $topic]);
 
 	if(isset($_SESSION['login'])){
 
-		header('location: home.php');
+		header('location: discussao.php?id=' . $id);
 }
 else{
 	header('location: cadastro.php');
