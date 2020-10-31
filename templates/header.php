@@ -10,6 +10,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
 
+
 <script src="/js/jquery.timeago.js"></script>
 <script src="/js/jquery.timeago.pt-br.js"></script>
 
@@ -76,12 +77,17 @@ $consulta = $stmt->fetchAll();
 
         <?php for ($i = 0; $i < sizeof($consulta); $i++): ?>
           <?php if($_SESSION['login'] == $consulta[$i]['US_ID']): ?>
+             <?php if ($consulta[$i]['US_IMAGE'] == null): ?>
+                    <img id="image-profile" src="upload/standard.png" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+                    <?php else: ?>
+                    <img id="image-profile" src="<?= $consulta[$i]['US_IMAGE'] ?>" class="rounded-circle z-depth-0" alt="avatar image" height="35">
+             <?php endif ?>
 
-            <?php if ($consulta[$i]['US_IMAGE'] != null): ?> 
+            <!-- <?php if ($consulta[$i]['US_IMAGE'] != null): ?> 
 
               <img src="<?= $consulta[$i]['US_IMAGE'] ?>" class="rounded-circle z-depth-0" alt="avatar image" height="35">
 
-            <?php endif ?>
+            <?php endif ?> -->
 
           <?php endif ?>
 
