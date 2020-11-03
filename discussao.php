@@ -74,13 +74,12 @@ $topico = $consulta[0];
 
 
 	<table style="width: 100vw;
-         height: 10vh;
-         display: flex;
-         flex-direction: row;
-         justify-content: center;
-         align-items: center">
-
-
+		margin-top: 10%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center">
 
          	<th><?=$con_pub[0]['US_NAME'] . ':'?></th>
 
@@ -91,6 +90,10 @@ $topico = $consulta[0];
 			<td style="border: 1px solid black"><?=$topico['TOP_DATE']?></td>
 
 		</table>
+			<a href="rating.php"><i class="far fa-thumbs-up"></i></a>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+    		<a href="rating.php"><i class="far fa-thumbs-down"></i></a>
+
     <?php
 
     	$stmt = $pdo->prepare("
@@ -100,8 +103,6 @@ $topico = $consulta[0];
     $stmt->execute([$topico['TOP_ID']]);
 
     $consulta_com = $stmt->fetchAll();
-
-
 
     ?>
 	<?php for($j= 0; $j < sizeof($consulta_com); $j++): ?>
@@ -135,21 +136,19 @@ $topico = $consulta[0];
 
 			
 
-			<?php if(isset($_SESSION['login'])):?>
+		<?php if(isset($_SESSION['login'])):?>
 
-			 <input type="text" name="comentario" placeholder="Escreva um comentario...">
-			 <input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
+			<input type="text" name="comentario" placeholder="Escreva um comentario...">
+			<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
 			<input type="submit" value="Comentar">
 
-
-			<?php  else:?>
+		<?php  else:?>
 					
-				<a href="cadastro.php">	<input type="text" name="comentario" placeholder="Faça login para comentar">
-				<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
+			<a href="cadastro.php">	<input type="text" name="comentario" placeholder="Faça login para comentar">
+			<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
 			<input type="submit" value="Comentar"></a>
 
-
-				<?php endif ?>
+		<?php endif ?>
 
 
 				
