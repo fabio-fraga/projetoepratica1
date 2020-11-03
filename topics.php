@@ -25,7 +25,7 @@ $stmt->execute([$subject, $title, $date, $user]);
 // $date,
 // $user);
 
-header('location: pub.php');
+header('location: home.php');
 
 
  ?>
