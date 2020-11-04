@@ -11,7 +11,7 @@
         exit();
     }
 
-?>
+?>+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +21,8 @@
 
 include 'templates/header.php';
 
-
+?>
+<?php
 $stmt = $pdo->prepare("
 	SELECT * FROM USERS
 	WHERE US_ID = ?
@@ -74,12 +75,13 @@ $topico = $consulta[0];
 
 
 	<table style="width: 100vw;
-		margin-top: 10%;
-        height: 10vh;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center">
+         height: 10vh;
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center">
+
+
 
          	<th><?=$con_pub[0]['US_NAME'] . ':'?></th>
 
@@ -90,40 +92,32 @@ $topico = $consulta[0];
 			<td style="border: 1px solid black"><?=$topico['TOP_DATE']?></td>
 
 		</table>
-			<a href="rating.php"><i class="far fa-thumbs-up"></i></a>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-    		<a href="rating.php"><i class="far fa-thumbs-down"></i></a>
+		<div class="con">
 
-    <?php
+			
+		</div>
+		<script>
+	
+	function loadData() {
+			console.log('fazendo requisição...');
+			$.ajax('discussao-ajax.php?id=<?=$id?>', {
+				success: function(data) {
+					console.log('atualizando...');
+					$('.con').html(data);
+				}
+			})
+		}
 
-    	$stmt = $pdo->prepare("
-    	SELECT * FROM COMMENTS WHERE COM_TOP_ID = ?
-    ");
+		$(document).ready(function() {
+			loadData();
+		});
 
-    $stmt->execute([$topico['TOP_ID']]);
+		setInterval(function() {
+			loadData();
+		}, 5 * 1000);
 
-    $consulta_com = $stmt->fetchAll();
 
-    ?>
-	<?php for($j= 0; $j < sizeof($consulta_com); $j++): ?>
-		<?php
-
-			$stmt = $pdo->prepare("
-
-				SELECT * FROM USERS WHERE US_ID = ?
-			");
-
-			$stmt->execute([$consulta_com[$j]['COM_US_ID']]);
-
-			$con_don = $stmt->fetchAll();
-        ?>
-
-		<table style="text-align: center">
-			<th><?= $con_don[0]['US_NAME'] . ':'; ?></th>
-			<td> <?= $consulta_com[$j]["COM_CONTENT"]; ?></td>
-		</table>
-
-	<?php endfor ?>
+</script>
 
 
 	<form action="comentario.php" method="POST" style="width: 100vw;
@@ -136,24 +130,18 @@ $topico = $consulta[0];
 
 			
 
-		<?php if(isset($_SESSION['login'])):?>
+			<?php if(isset($_SESSION['login'])):?>
 
-			<input type="text" name="comentario" placeholder="Escreva um comentario...">
-			<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
+			 <input type="text" name="comentario" placeholder="Escreva um comentario...">
+			 <input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
 			<input type="submit" value="Comentar">
 
-		<?php  else:?>
+
+			<?php  else:?>
 					
-			<a href="cadastro.php">	<input type="text" name="comentario" placeholder="Faça login para comentar">
-			<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
-			<input type="submit" value="Comentar"></a>
+				<a href="cadastro.php">Faça login para comentar...</a>
 
-		<?php endif ?>
-
-
-				
-
-			
+				<?php endif ?>
 
 	</form>
 
