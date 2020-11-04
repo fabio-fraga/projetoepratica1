@@ -75,11 +75,12 @@ $topico = $consulta[0];
 
 
 	<table style="width: 100vw;
-         height: 10vh;
-         display: flex;
-         flex-direction: row;
-         justify-content: center;
-         align-items: center">
+		margin-top: 10%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center">
 
 
 
@@ -92,6 +93,9 @@ $topico = $consulta[0];
 			<td style="border: 1px solid black"><?=$topico['TOP_DATE']?></td>
 
 		</table>
+			<a href="<?="rating.php?topid=$id&valor=1"?>"><i class="far fa-thumbs-up"></i></a>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+    		<a href="<?="rating.php?topid=$id&valor=0"?>"><i class="far fa-thumbs-down"></i></a>
 		<div class="con">
 
 			
