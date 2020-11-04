@@ -13,7 +13,7 @@
     
   <main>
 
-    <div class="container mt-n4 w-100">
+    <div class="container mt-n3 w-100">
 
       <img id="img-ajuda" class="w-100" src="/img/help.jpg">
 

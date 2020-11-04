@@ -26,7 +26,7 @@
 
             <p class="text-danger"><strong><?=$men_erro?></strong></p>
 
-            <input class="btn btn-info btn-block" type="submit" value="Entrar">
+            <input class="btn btn-primary" type="submit" value="Entrar">
 
             </form>
    

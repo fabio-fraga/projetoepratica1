@@ -42,7 +42,7 @@ include 'templates/header.php';
 
                 <p class="text-danger"><strong><?=$report_erro?></strong></p>
 
-                <input class="btn btn-info btn-block" type="submit" value="Registrar" class="inputs-form-cadastro">
+                <input class="btn btn-primary" type="submit" value="Registrar" class="inputs-form-cadastro">
 
             </form>
 
