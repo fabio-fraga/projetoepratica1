@@ -41,11 +41,17 @@ $user = 'Olá, ' . $_SESSION['name'] . '!';
 
 <?php
 $stmt = $pdo->prepare("
-  SELECT * FROM TOPICS WHERE TOP_ID = ?
+  SELECT *
+  FROM TOPICS
+  LEFT JOIN VOTE ON VOTE_TOP_ID = TOP_ID AND VOTE_US_ID = :user_id
+  WHERE TOP_ID = :top_id
 
 ");
 
-$stmt->execute([$id]);
+$stmt->execute([
+    'top_id' => $id,
+    'user_id' => $_SESSION['login'],
+]);
 $consulta = $stmt->fetchAll();
 
 if (sizeof($consulta) == 0) {
@@ -93,15 +99,15 @@ $topico = $consulta[0];
 			<td style="border: 1px solid black"><?=$topico['TOP_DATE']?></td>
 
 		</table>
-			<a href="<?="rating.php?topid=$id&valor=1"?>"><i class="far fa-thumbs-up"></i></a>
+			<a href="<?="rating.php?topid=$id&valor=1"?>"><i class="fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '1' ? '' : 'r' ?> fa-thumbs-up"></i></a>
 							&nbsp;&nbsp;&nbsp;&nbsp;
-    		<a href="<?="rating.php?topid=$id&valor=0"?>"><i class="far fa-thumbs-down"></i></a>
+    		<a href="<?="rating.php?topid=$id&valor=0"?>"><i class="fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '0' ? '' : 'r' ?> fa-thumbs-down"></i></a>
 		<div class="con">
 
-			
+
 		</div>
 		<script>
-	
+
 	function loadData() {
 			console.log('fazendo requisição...');
 			$.ajax('discussao-ajax.php?id=<?=$id?>', {
