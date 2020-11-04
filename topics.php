@@ -4,8 +4,8 @@ include 'bd.php';
 
 // $_SESSION['id'] = $linhas[0]['US_ID'];
 
-$subject = $_POST['subject'];
-$title = $_POST['title'];
+$subject = nl2br(htmlentities( $_POST['subject']));
+$title = htmlentities($_POST['title']);
 $date = date("Y-m-d H:i:s");
 $user = $_SESSION['login'];
 
@@ -17,13 +17,6 @@ VALUES (?,?,?,?)
 
 $stmt->execute([$subject, $title, $date, $user]);
 
-
-
-
-// var_dump($title,
-// $subject,
-// $date,
-// $user);
 
 header('location: home.php');
 
