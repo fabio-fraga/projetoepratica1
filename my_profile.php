@@ -33,7 +33,7 @@ $stmt = $pdo->prepare("
                   <div class="d-flex flex-column align-items-center text-center">
 
                       <?php if ($consulta[0]['US_IMAGE'] == null): ?> 
-                                  <img  src="upload/standard.png" class="rounded-circle" width="Student at IFPE Campus Igarassu150" height="150">
+                                  <img  src="upload/standard.png" class="rounded-circle" width="150" height="150">
                            <?php else: ?>
 
                            <img  src="<?= $consulta[0]['US_IMAGE'] ?>" class="rounded-circle" width="150" height="150">
@@ -125,6 +125,7 @@ $stmt = $pdo->prepare("
               </div>
 
   <?php for ($i = 0; $i < sizeof($consulta); $i++): ?> 
+
         <?php if($consulta[$i]['TOP_TITLE'] == null) continue ?>
               
                     <div class="container mb-3 shadow border border-light rounded">
