@@ -11,7 +11,7 @@
         exit();
     }
 
-?>+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,26 +24,10 @@ include 'templates/header.php';
 ?>
 <?php
 $stmt = $pdo->prepare("
-	SELECT * FROM USERS
-	WHERE US_ID = ?
-");
-
-$stmt->execute([$_SESSION['login'],]);
-
-$linhas = $stmt->fetchAll();
-
-$_SESSION['name'] = $linhas[0]['US_NAME'];
-
-$user = 'Olá, ' . $_SESSION['name'] . '!';
-
-
-?>
-
-<?php
-$stmt = $pdo->prepare("
   SELECT *
   FROM TOPICS
   LEFT JOIN VOTE ON VOTE_TOP_ID = TOP_ID AND VOTE_US_ID = :user_id
+  LEFT JOIN USERS ON US_ID = TOP_US_ID
   WHERE TOP_ID = :top_id
 
 ");
@@ -62,21 +46,6 @@ if (sizeof($consulta) == 0) {
 $topico = $consulta[0];
 
 ?>
-
-
-
-    <?php
-
-    $stmt = $pdo->prepare("
-    	SELECT * FROM USERS WHERE US_ID = ?
-    ");
-
-    $stmt->execute([$topico['TOP_US_ID']]);
-
-    $con_pub = $stmt->fetchAll();
-
-     ?>
-
 	<div style="border: 1px solid black; margin-bottom: 2%; ">
 
 
@@ -90,7 +59,7 @@ $topico = $consulta[0];
 
 
 
-         	<th><?=$con_pub[0]['US_NAME'] . ':'?></th>
+         	<th><?=$consulta[0]['US_NAME'] . ':'?></th>
 
 			<th style="border: 1px solid black"><?=$topico['TOP_TITLE']?></th>
 
@@ -142,9 +111,10 @@ $topico = $consulta[0];
 
 			<?php if(isset($_SESSION['login'])):?>
 
-			 <input type="text" name="comentario" placeholder="Escreva um comentario...">
-			 <input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
+			<input type="text" name="comentario" placeholder="Escreva um comentario...">
+			<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
 			<input type="submit" value="Comentar">
+
 
 
 			<?php  else:?>
