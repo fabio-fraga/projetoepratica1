@@ -67,10 +67,17 @@ $topico = $consulta[0];
 
 			<td style="border: 1px solid black"><?=$topico['TOP_DATE']?></td>
 
+		<?php
+			$lk = getlike($topico['TOP_ID']);
+			$dlk = getdislike($topico['TOP_ID']);
+		
+		?>
 		</table>
 			<a href="<?="rating.php?topid=$id&valor=1"?>"><i class="fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '1' ? '' : 'r' ?> fa-thumbs-up"></i></a>
 							&nbsp;&nbsp;&nbsp;&nbsp;
-    		<a href="<?="rating.php?topid=$id&valor=0"?>"><i class="fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '0' ? '' : 'r' ?> fa-thumbs-down"></i></a>
+			<p><?= $lk?></p>
+			<a href="<?="rating.php?topid=$id&valor=0"?>"><i class="fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '0' ? '' : 'r' ?> fa-thumbs-down"></i></a>
+			<p><?= $dlk ?></p>
 		<div class="con">
 
 
@@ -99,7 +106,7 @@ $topico = $consulta[0];
 </script>
 
 
-	<form action="comentario.php" method="POST" style="width: 100vw;
+	<form id="form-comment" action="comentario.php" method="POST" style="width: 100vw;
      height: 10vh;
      display: flex;
      flex-direction: row;
@@ -111,8 +118,9 @@ $topico = $consulta[0];
 
 			<?php if(isset($_SESSION['login'])):?>
 
-			<input type="text" name="comentario" placeholder="Escreva um comentario...">
-			<input type="hidden" name="id_post" value="<?=$topico['TOP_ID']?>" >
+			<input type="text" id="comentario" name="comentario" placeholder="Escreva um comentario...">
+			<input type="hidden" id="id_post" name="id_post" value="<?=$topico['TOP_ID']?>">
+			<input type="hidden" id="id_us" name="id_us" value="<?=$topico['TOP_US_ID']?>" >
 			<input type="submit" value="Comentar">
 
 
@@ -126,7 +134,34 @@ $topico = $consulta[0];
 	</form>
 
 	</div>
+	<?php 
 
+		function getlike($id_topico){
+			include 'bd.php';
+			$stmt = $pdo->prepare(" SELECT COUNT(VOTE_ID) FROM VOTE WHERE VOTE_VALUE=1 AND VOTE_TOP_ID = ?");
+
+			$stmt->execute([$id_topico]);
+
+			$likes = $stmt->fetchAll();
+			
+			return $likes[0][0];
+
+		}
+
+		function getdislike($id_topico){
+			include 'bd.php';
+			$stmt = $pdo->prepare(" SELECT COUNT(VOTE_ID) FROM VOTE WHERE VOTE_VALUE=0 AND VOTE_TOP_ID = ?");
+
+			$stmt->execute([$id_topico]);
+
+			$dislikes = $stmt->fetchAll();
+			var_dump($dislikes);
+			return $dislikes[0][0];
+
+		}
+	?>
+	<script src="./js/jquery-compressed.js"></script>	
+	<script src="./js/salvar-comentario.js"></script>			
 <?php
 
 include 'templates/footer.php';
