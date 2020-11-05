@@ -1,6 +1,12 @@
 <?php
 
 session_start();
+use League\CommonMark\GithubFlavoredMarkdownConverter;
+
+
+require 'vendor/autoload.php';
+
+session_start();
 
 include 'bd.php';
 
@@ -15,6 +21,13 @@ $erro_campos = false;
 $erro_caracteres_title = false;
 $erro_type_img = false;
 $report_erro = '';
+
+$converter = new GithubFlavoredMarkdownConverter([
+    'html_input' => 'strip',
+    'allow_unsafe_links' => false,
+]);
+
+$subject = $converter->convertToHtml($subject);
 
 function empty_text ($string) {
   $array = str_split($string);
@@ -32,7 +45,7 @@ function empty_text ($string) {
 
 if (empty($title) || empty_text($title) || empty($subject) || empty_text($subject)) {
 	$erro_campos = true;
-	$report_erro = 'Preencha todos os campos obrigatórios!'; 
+	$report_erro = 'Preencha todos os campos obrigatórios!';
   include 'home.php';
 }
 
@@ -45,13 +58,13 @@ if (strlen($title) > 255 && $erro_campos == false) {
 if (substr($img_nome, -3) == 'png' && $erro_campos == false && $erro_caracteres_title == false) {
   $erro_type_img = false;
 } elseif (substr($img_nome, -3) == 'jpg' && $erro_campos == false && $erro_caracteres_title == false) {
-  $erro_type_img = false; 
+  $erro_type_img = false;
 } elseif (substr($img_nome, -4) == 'jpeg' && $erro_campos == false && $erro_caracteres_title == false) {
   $erro_type_img = false;
 } elseif (substr($img_nome, -4) == '' && $erro_campos == false && $erro_caracteres_title == false) {
   $erro_type_img = false;
 } else {
-  $erro_type_img = true; 
+  $erro_type_img = true;
   $report_erro = 'Formatos de imagens diferentes de PNG, JPG e JPEG não são permitidos!';
   include 'home.php';
 }
@@ -59,7 +72,8 @@ if (substr($img_nome, -3) == 'png' && $erro_campos == false && $erro_caracteres_
 if ($erro_campos == false && $erro_caracteres_title == false && $erro_type_img == false) {
   if (isset($_FILES['img'])) {
 
-    if (!file_exists('upload/' . $_SESSION['login'])) { 
+
+    if (!file_exists('upload/' . $_SESSION['login'])) {
       mkdir('upload/' . $_SESSION['login'], 0700, true);
     }
     if (strtolower(substr($_FILES['img']['name'], -4)) != '.jpg' && strtolower(substr($_FILES['img']['name'], -4)) != '.png') {

@@ -21,6 +21,9 @@
 
   jQuery(document).ready(function() {
     jQuery("time.timeago").timeago();
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    })
   });
 </script>
 
