@@ -2,6 +2,7 @@
 session_start();
 
 $id = $_POST['id_post'];
+$us = $_POST['id_us'];
 
 include 'bd.php';
 
