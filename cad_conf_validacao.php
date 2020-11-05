@@ -37,7 +37,14 @@ $senha = sha1($_SESSION['senha']);
     header('location: login.php');
     
 } else {
-    echo "Código incorreto!";
+  $nome = $_SESSION['nome'];
+  $email = $_SESSION['email'];
+  $linkedin = $_SESSION['linkedin'];
+  $github = $_SESSION['github'];
+  $birth = $_SESSION['birth'];
+  $senha = $_SESSION['senha'];
+  $conf_erro = "Código incorreto! Por favor, verifique o código enviado para o email cadastrado.";
+  include 'cad_confirmacao.php';
 }
 
 ?>
