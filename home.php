@@ -48,7 +48,7 @@ include 'bd.php';
 
 							</div>
 							<div class="col-10 text-left ml-n5 pb-3">
-								<div class="row justify-content-center ml-4 mb-2	">
+								<div class="row justify-content-center ml-4 mb-2">
 									<input type="submit" value="Publicar" class="btn btn-primary">
 								</div>
 
