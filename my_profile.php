@@ -1,8 +1,12 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile User</title>
 <?php 
-
-
-
-
 include 'templates/header.php'; 
 
 include'bd.php';
@@ -11,7 +15,7 @@ include'bd.php';
 ?>
   <?php 
 $stmt = $pdo->prepare("
-   SELECT * FROM USERS INNER JOIN TOPICS ON TOP_US_ID = US_ID AND US_ID = ?
+   SELECT * FROM USERS LEFT JOIN TOPICS ON TOP_US_ID = US_ID WHERE US_ID = ? ORDER BY TOP_DATE DESC
     ");
 
     $stmt->execute([$_GET['id']]);
@@ -29,7 +33,7 @@ $stmt = $pdo->prepare("
                   <div class="d-flex flex-column align-items-center text-center">
 
                       <?php if ($consulta[0]['US_IMAGE'] == null): ?> 
-                                  <img  src="upload/standard.png" class="rounded-circle" width="150" height="150">
+                                  <img  src="upload/standard.png" class="rounded-circle" width="Student at IFPE Campus Igarassu150" height="150">
                            <?php else: ?>
 
                            <img  src="<?= $consulta[0]['US_IMAGE'] ?>" class="rounded-circle" width="150" height="150">
@@ -38,7 +42,7 @@ $stmt = $pdo->prepare("
 
                     <div class="mt-3">
                       <h4><p class="text-primary mb-1"><?= $consulta[0]['US_DESCRIPTION'] ?></p></h4>
-                      <?php if(isset($_SESSION['login'])): ?>
+                      <?php if ($_SESSION['login'] == $_GET['id']): ?>
 
                       <p><a href="profile.php">Editar perfil</a></p>
                       <?php endif ?>
@@ -119,7 +123,9 @@ $stmt = $pdo->prepare("
                   </div>
                 </div>
               </div>
-  <?php for ($i = 0; $i < sizeof($consulta); $i++): ?>
+
+  <?php for ($i = 0; $i < sizeof($consulta); $i++): ?> 
+        <?php if($consulta[$i]['TOP_TITLE'] == null) continue ?>
               
                     <div class="container mb-3 shadow border border-light rounded">
 
