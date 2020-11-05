@@ -87,12 +87,7 @@ $consulta = $stmt->fetchAll();
                     <img id="image-profile" src="<?= $consulta[$i]['US_IMAGE'] ?>" class="rounded-circle z-depth-0" alt="avatar image" width="38" height="38">
              <?php endif ?>
 
-            <!-- <?php if ($consulta[$i]['US_IMAGE'] != null): ?> 
-
-              <img src="<?= $consulta[$i]['US_IMAGE'] ?>" class="rounded-circle z-depth-0" alt="avatar image" height="35">
-
-            <?php endif ?> -->
-
+            
           <?php endif ?>
 
         <?php endfor ?>
@@ -106,7 +101,7 @@ $consulta = $stmt->fetchAll();
         <?php if (isset($_SESSION['login'])): ?>
 
           <div class="dropdown-menu dropdown-pink" aria-labelledby="navbarDropdownMenuLink-7">
-            <a class="dropdown-item" href="profile.php">Perfil</a>
+            <a class="dropdown-item" href="my_profile.php?id=<?=$_SESSION['login']?>" >Perfil</a>
             <a class="dropdown-item" href="logout.php">Sair</a>
           </div>
 
