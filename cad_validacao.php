@@ -17,6 +17,7 @@ $erro_senhas = false;
 $tam_senha = false;
 $tam_nome = false;
 $report_erro = '';
+$conf_erro='';
 
 function empty_name ($string) {
   $array = str_split($string);
@@ -64,18 +65,20 @@ $stmt->execute([$email, $nome]);
 
 $linhas = $stmt->fetchAll();
 
-if($email == $linhas[0]['US_EMAIL']){
-  if ($erro_campos == false && $erro_nome == false){
-  $erro_email = true;
-  $report_erro ="E-mail já cadastrado!";
-  include'cadastro.php';
+
+
+  if($email == $linhas[0]['US_EMAIL']){
+    if ($erro_campos == false && $erro_nome == false){
+      $erro_email = true;
+      $report_erro ="E-mail já cadastrado!";
+      include'cadastro.php';
+    }
   }
-}
 if($nome == $linhas[0]['US_NAME']){
   if ($erro_campos == false && $erro_nome == false){
-  $erro_nome = true;
-  $report_erro ="Usuario já cadastrado!";
-  include'cadastro.php';
+    $erro_nome = true;
+    $report_erro ="Usuario já cadastrado!";
+    include'cadastro.php';
   }
 }
 if (strlen($nome) > 64) {
@@ -103,26 +106,27 @@ if ($senha != $conf_senha) {
 }
 
 if ($erro_campos == false && $erro_nome == false && $erro_email == false && $tam_nome == false && $tam_senha == false && $erro_senhas == false) {
+  
 
   session_start();
-
+  
   define('RANDOM', rand(1000, 10000));
 
   $_SESSION['codigo'] = RANDOM;
-
+  
   $_SESSION['nome'] = $nome;
   $_SESSION['email'] = $email;
   $_SESSION['linkedin'] = $linkedin;
   $_SESSION['github'] = $github;
   $_SESSION['birth'] = $birth;
   $_SESSION['senha'] = $senha;
-
+  
   echo 'Código: ' . RANDOM . PHP_EOL;
-
+  
   include 'enviar_email.php';
-
+  
   include 'cad_confirmacao.php';
-
+  
 }
 
 ?>
