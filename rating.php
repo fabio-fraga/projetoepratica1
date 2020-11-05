@@ -4,7 +4,7 @@ include 'bd.php';
 
 session_start();
 
-$ld = substr($_GET['topid'], -1);
+$ld = $_GET['topid'];
 
 $stmt = $pdo->prepare("SELECT * FROM VOTE WHERE VOTE_US_ID = ? AND VOTE_TOP_ID = ?");
 

@@ -2,8 +2,6 @@
 
  	include 'bd.php';
 
-	session_start();
-
     $id = $_GET['id'] ?? false;
 
     if ($id === false) {
@@ -29,7 +27,6 @@ $stmt = $pdo->prepare("
   LEFT JOIN VOTE ON VOTE_TOP_ID = TOP_ID AND VOTE_US_ID = :user_id
   LEFT JOIN USERS ON US_ID = TOP_US_ID
   WHERE TOP_ID = :top_id
-
 ");
 
 $stmt->execute([
@@ -100,7 +97,7 @@ $topico = $consulta[0];
 
 		setInterval(function() {
 			loadData();
-		}, 5 * 1000);
+		}, 1 * 1000);
 
 
 </script>

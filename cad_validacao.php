@@ -17,7 +17,7 @@ $erro_senhas = false;
 $tam_senha = false;
 $tam_nome = false;
 $report_erro = '';
-$conf_erro='';
+$conf_erro = '';
 
 function empty_name ($string) {
   $array = str_split($string);
@@ -28,21 +28,21 @@ function empty_name ($string) {
     }
   }
   if ($cont == sizeof($array)) {
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
-if (empty($nome) || empty_name($nome) == false || empty($email) || empty($birth) || empty($senha) || empty($conf_senha)) {
+if (empty($nome) || empty_name($nome) || empty($email) || empty($birth) || empty($senha) || empty($conf_senha)) {
   $erro_campos = true;
-  $report_erro = 'Preencha todos os campos!';  
+  $report_erro = 'Preencha todos os campos obrigatórios!';  
   include 'cadastro.php';
 }
 
 if (preg_match("/^[a-zA-Zá-úÁ-Úç ]+$/", $nome) == false) {
   if ($erro_campos == false) {
     $erro_nome = true;
-    $report_erro = 'Caracteres especiais não podem ser utilizados no campo de ID!';  
+    $report_erro = 'Caracteres especiais não podem ser utilizados no campo nome de usuário!';  
     include 'cadastro.php'; 
   }
 }
@@ -65,26 +65,24 @@ $stmt->execute([$email, $nome]);
 
 $linhas = $stmt->fetchAll();
 
-
-
-  if($email == $linhas[0]['US_EMAIL']){
-    if ($erro_campos == false && $erro_nome == false){
-      $erro_email = true;
-      $report_erro ="E-mail já cadastrado!";
-      include'cadastro.php';
-    }
+if($email == $linhas[0]['US_EMAIL']){
+  if ($erro_campos == false && $erro_nome == false){
+  $erro_email = true;
+  $report_erro ="E-mail já cadastrado!";
+  include'cadastro.php';
   }
+}
 if($nome == $linhas[0]['US_NAME']){
   if ($erro_campos == false && $erro_nome == false){
-    $erro_nome = true;
-    $report_erro ="Usuario já cadastrado!";
-    include'cadastro.php';
+  $erro_nome = true;
+  $report_erro ="Usuario já cadastrado!";
+  include'cadastro.php';
   }
 }
 if (strlen($nome) > 64) {
   if ($erro_campos == false && $erro_nome == false && $erro_email == false) {
     $tam_nome = true;
-    $report_erro = 'O ID deve conter no máximo 64 caracteres!'; 
+    $report_erro = 'Nome de usuário deve conter no máximo 64 caracteres!'; 
     include 'cadastro.php';
   }
 }
@@ -106,27 +104,26 @@ if ($senha != $conf_senha) {
 }
 
 if ($erro_campos == false && $erro_nome == false && $erro_email == false && $tam_nome == false && $tam_senha == false && $erro_senhas == false) {
-  
 
   session_start();
-  
+
   define('RANDOM', rand(1000, 10000));
 
   $_SESSION['codigo'] = RANDOM;
-  
+
   $_SESSION['nome'] = $nome;
   $_SESSION['email'] = $email;
   $_SESSION['linkedin'] = $linkedin;
   $_SESSION['github'] = $github;
   $_SESSION['birth'] = $birth;
   $_SESSION['senha'] = $senha;
-  
+
   echo 'Código: ' . RANDOM . PHP_EOL;
-  
+
   include 'enviar_email.php';
-  
+
   include 'cad_confirmacao.php';
-  
+
 }
 
 ?>
