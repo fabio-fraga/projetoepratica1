@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include 'bd.php';
 
@@ -11,7 +11,7 @@ include 'bd.php';
 	<title>Bem-vindo ao F4ALL!</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<?php 
+	<?php
 	include 'templates/header.php';
 	?>
 
@@ -39,7 +39,7 @@ include 'bd.php';
 						</div>
 						<div class="row justify-content-center">
 							<div class="col-11 text-left pb-3">
-								<textarea type="text" class="form-control" name="title" placeholder="Dê um título ao tópico:" style="resize: none"><?= $_POST['title'] ?? '' ?></textarea>
+								<input type="text" class="form-control" name="title" placeholder="Dê um título ao tópico:" style="resize: none" value="<?= $_POST['title'] ?? '' ?>">
 								<p class="text-danger text-left">(Campo obrigatório)</p>
 							</div>
 						</div>
@@ -47,6 +47,7 @@ include 'bd.php';
 							<div class="col-11 text-left pb-3">
 								<textarea type="text" class="form-control" name="subject" placeholder="Descreva seu problema ou dúvida:" style="resize: none"><?= $_POST['subject'] ?? '' ?></textarea>
 								<p class="text-danger text-left">(Campo obrigatório)</p>
+                                <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" class="text-right" data-toggle="tooltip" data-placement="left" title="Este formulário é formatado com markdown. Clique para saber mais">Ajuda?</a>
 							</div>
 						</div>
 						<div class="row justify-content-center mt-n3">
@@ -128,12 +129,12 @@ include 'bd.php';
 			<?php endfor ?>
 			<script>
 				$('.delete').on('click', evt => {
-					if (!confirm("Quer realmente apagar o seu Tópico?")) evt.preventDefault() 
+					if (!confirm("Quer realmente apagar o seu Tópico?")) evt.preventDefault()
 				})
-			</script>	
+			</script>
 		</main>
 
-		<?php 
+		<?php
 		include 'templates/footer.php';
 		?>
 
