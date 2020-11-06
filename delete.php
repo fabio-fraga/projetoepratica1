@@ -20,7 +20,6 @@
 ?>
 <?php 
 
-
     $stmt = $pdo->prepare("DELETE FROM TOPICS WHERE TOP_ID = ?");
 
     $stmt->execute([$erase]);
