@@ -79,6 +79,6 @@ if (isset($_FILES['image']) && is_uploaded_file($_FILES["image"]["tmp_name"])) {
 	$stmt->execute([$linkedin, $github, $birth, $description, $_SESSION['login']]);
 }
 	unset($_FILES);
-	header('location: profile.php');
+	header('location: my_profile.php?id='.$_SESSION['login']);
 }
 ?>
