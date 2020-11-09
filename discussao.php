@@ -68,7 +68,7 @@ $topico = $consulta[0];
                 <?php else: ?>
                     <a href="my_profile.php?id=<?=$topico['US_ID'] ?>">
                         <figure class="figure text-center">
-                            <img class="figure-img img-fluid rounded-circle" src="<?= $topico['US_IMAGE'] ?>" style="height: 75px; width: 75px;"></a>
+						<img class="figure-img img-fluid rounded-circle" src="<?= $topico['US_IMAGE'] ?>" style="height: 75px; width: 75px;"></a>
                          <strong><figcaption class="figure-caption">Criado por <?= $topico['US_NAME'] ?></figcaption></strong>
                         </figure>
                     </a>
@@ -85,7 +85,7 @@ $topico = $consulta[0];
 			date_default_timezone_set('America/Recife');
 
     		?>
-    		<div class="col-2 text-right pt-3">Criado em: <?= strftime('%A, %e de %B de %Y', strtotime($topico['TOP_DATE'])) ?>
+    		<div class="col-2 text-right pt-3">Criado <time class="timeago" datetime="<?= date('Y-m-d H:m:s', strtotime($topico['TOP_DATE'])) ?>"></time>
     		</div>
 
     		<?php if (isset($_SESSION['login']) && $topico['TOP_US_ID'] == $_SESSION['login']): ?>
@@ -125,22 +125,25 @@ $topico = $consulta[0];
   				</div>
   			</div>
   		<?php endif ?>
-		
-		<div class="row justify-content-center mt-3">
-  			<?php
-  				$lk = getlike($topico['TOP_ID']);
-				$dlk = getdislike($topico['TOP_ID']);					
+		  <?php
+  				if(!isset($lk)){
+					$lk=0;
+				  }
+				  if(!isset($dlk)){
+					$dlk=0;
+				  }
 			?>
-
-			<div class="col-1 ml-n5">
-		  		<a href="<?="rating.php?topid=$id&valor=1"?>"><i class="fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '1' ? '' : 'r' ?> fa-thumbs-up"></i></a>
-					<p><?=$lk?></p>
+		<div class="voto row justify-content-center mt-3">
+  			
+			<div class="col-1 ml-n5 ">
+			<a id="like" href="<?="rating.php?topid=$id&valor=1"?>" onclick="liker(event)" > <i class=" fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '1' ? '' : 'r' ?> fa-thumbs-up"></i></a>					<p id="n-like"><?=$lk?></p>
 			</div>
 
 			<div class="col-1">
-				<a href="<?="rating.php?topid=$id&valor=0"?>"><i class="fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '0' ? '' : 'r' ?> fa-thumbs-down"></i></a>
-					<p><?= $dlk ?></p>
+			<a id="dislike" href="<?="rating.php?topid=$id&valor=0"?> "onclick="disliker(event)"> <i class=" fa<?= $topico['VOTE_VALUE'] != null && $topico['VOTE_VALUE'] == '0' ? '' : 'r' ?> fa-thumbs-down"></i></a>					<p id="n-dislike"><?= $dlk ?></p>
   			</div>
+
+			
 
   			<div class="col-9"></div>
   		</div>
@@ -150,20 +153,20 @@ $topico = $consulta[0];
   		
 
 		<div class="container shadow border border-light rounded">
-			<form enctype="multipart/form-data" method="POST" action="comentario.php" class="text-center mt-n3 mb-3">
+			<form id="form-comment" enctype="multipart/form-data" method="POST" action="comentario.php" class="text-center mt-n3 mb-3">
 				<input type="hidden" id="id_post" name="id_post" value="<?=$topico['TOP_ID']?>">
 				<input type="hidden" id="id_us" name="id_us" value="<?=$topico['TOP_US_ID']?>" >
 						
 				<div class="row justify-content-center mt-5">
 					<div class="col-11 text-left pb-3">
-						<textarea type="text" class="form-control" name="comentario" placeholder="Faça um comentário:" style="resize: none"><?= $_POST['subject'] ?? '' ?></textarea>
+						<textarea id="comentario" type="text" class="form-control" name="comentario" placeholder="Faça um comentário:" style="resize: none"><?= $_POST['subject'] ?? '' ?></textarea>
 						<p class="text-danger text-left">(Campo obrigatório)</p>
                               <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" class="text-right" data-toggle="tooltip" data-placement="left" title="Este formulário é formatado com markdown. Clique para saber mais">Ajuda?</a>
 					</div>
 				</div>
 				<div class="row justify-content-center mt-n3">
 					<div class="col-11 text-center pb-3">
-						<input class="form-control-file" type="file" name="img" accept="image/jpeg, image/png">
+						<input id="img" class="form-control-file" type="file" name="img" accept="image/jpeg, image/png">
 					</div>
 				</div>
 
@@ -186,9 +189,8 @@ $topico = $consulta[0];
 	<?php  else: ?>
 		<div class="container mb-3 shadow border border-light rounded">
 			<div class="row justify-content-center pb-3">
-				<div class="col-12 text-center pt-3">
+			<div class="col-12 text-center pt-3">
 					<strong><a href="cadastro.php">Faça login para comentar!</a></strong>
-				</div>
 			</div>
 		</div>
 
@@ -200,38 +202,12 @@ $topico = $consulta[0];
 
 <?php include 'templates/footer.php'; ?>
 
-	<?php 
-
-		function getlike($id_topico){
-			include 'bd.php';
-			$stmt = $pdo->prepare(" SELECT COUNT(VOTE_ID) FROM VOTE WHERE VOTE_VALUE=1 AND VOTE_TOP_ID = ?");
-
-			$stmt->execute([$id_topico]);
-
-			$likes = $stmt->fetchAll();
-			
-			return $likes[0][0];
-
-		}
-
-		function getdislike($id_topico){
-			include 'bd.php';
-			$stmt = $pdo->prepare(" SELECT COUNT(VOTE_ID) FROM VOTE WHERE VOTE_VALUE=0 AND VOTE_TOP_ID = ?");
-
-			$stmt->execute([$id_topico]);
-
-			$dislikes = $stmt->fetchAll();
-			// var_dump($dislikes);
-			return $dislikes[0][0];
-
-		}
-	?>
-
-	<script src="./js/jquery-compressed.js"></script>	
+		
 	<script src="./js/salvar-comentario.js"></script>	
-
+	<script src="./js/salvar-voto.js"></script>	
+	
 	<script>
-
+		
 		$('.delete').on('click', evt => {
 			if (!confirm("Clique em 'OK' para confirmar a exclusão deste tópico:")) evt.preventDefault()
 		})
@@ -249,13 +225,25 @@ $topico = $consulta[0];
 			})
 		}
 
+		function loadLike() {
+	$.ajax('rating-ajax.php?topid=<?=$id?>', {
+		success: function(data) {
+			console.log('atualizando...');
+			
+			$('.voto').html(data);
+		}
+	})
+}
+
 		$(document).ready(function() {
 			loadData();
+			loadLike();
 		});
 
 		setInterval(function() {
 			loadData();
-		}, 2 * 5000);
+			loadLike();
+		}, 1 * 2000);
 
 	</script>		
 	
