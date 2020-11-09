@@ -98,6 +98,6 @@ if ($erro_campo == false && $erro_type_img == false) {
   }
 }
 
-header('location: discussao.php?id=' . $topic);
+
 
 ?>
