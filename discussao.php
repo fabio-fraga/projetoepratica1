@@ -68,7 +68,7 @@ $topico = $consulta[0];
                 <?php else: ?>
                     <a href="my_profile.php?id=<?=$topico['US_ID'] ?>">
                         <figure class="figure text-center">
-                            <img class="figure-img img-fluid rounded-circle w-50 h-50" src="<?= $topico['US_IMAGE'] ?>"></a>
+                            <img class="figure-img img-fluid rounded-circle" src="<?= $topico['US_IMAGE'] ?>" style="height: 75px; width: 75px;"></a>
                          <strong><figcaption class="figure-caption">Criado por <?= $topico['US_NAME'] ?></figcaption></strong>
                         </figure>
                     </a>

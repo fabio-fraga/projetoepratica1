@@ -103,7 +103,7 @@ $pesquisa = $_GET['pesquisa'];
                     	<?php else: ?>
                     		<a href="my_profile.php?id=<?= $dados[$i]['TOP_US_ID'] ?>">
                     			<figure class="figure text-center">
-                    				<img class="figure-img img-fluid rounded-circle w-50 h-50" src="<?= $dados[$i]['US_IMAGE'] ?>">
+                    				<img class="figure-img img-fluid rounded-circle" style=" height: 75px; width: 75px;" src="<?= $dados[$i]['US_IMAGE'] ?>">
                     			<strong><figcaption class="figure-caption">Criado por <?= $dados[$i]['US_NAME'] ?></figcaption></strong>
                         		</figure>
                     		</a>
