@@ -186,8 +186,8 @@ $topico = $consulta[0];
 	<?php  else: ?>
 		<div class="container mb-3 shadow border border-light rounded">
 			<div class="row justify-content-center pb-3">
-				<div class="col-12">
-					<a href="cadastro.php">Faça login para comentar...</a>
+				<div class="col-12 text-center pt-3">
+					<strong><a href="cadastro.php">Faça login para comentar!</a></strong>
 				</div>
 			</div>
 		</div>
