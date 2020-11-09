@@ -12,6 +12,11 @@ $description = $_POST['description'];
 $erro_campos = false;
 $report_erro = '';
 
+//echo "<pre>";
+//var_dump($_POST);
+//var_dump($_FILES);
+//exit();
+
 function empty_text ($string) {
   $array = str_split($string);
   $cont = 0;
@@ -34,7 +39,7 @@ if (empty($birth) || empty_text($birth)) {
 
 if ($erro_campos == false) {
 
-if (isset($_FILES['image'])) {
+if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
 
     if (!file_exists('upload/' . $_SESSION['login'])) { 
       mkdir('upload/' . $_SESSION['login'], 0700, true);
@@ -68,7 +73,7 @@ if (isset($_FILES['image'])) {
   		US_LINKEDIN = ?,
   		US_GITHUB = ?,
   		US_BIRTH = ?,
-  		US_DESCRIPTION = ?,
+  		US_DESCRIPTION = ?
   		WHERE US_ID = ?
 	");
 
