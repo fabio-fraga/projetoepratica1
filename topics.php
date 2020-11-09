@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-use League\CommonMark\GithubFlavoredMarkdownConverter;
 
+use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 require 'vendor/autoload.php';
 
@@ -10,7 +10,7 @@ session_start();
 
 include 'bd.php';
 
-$subject = nl2br(htmlentities($_POST['subject']));
+$subject = $_POST['subject'];
 $title = htmlentities($_POST['title']);
 $date = date("Y-m-d H:i:s");
 $date_save = $date;
