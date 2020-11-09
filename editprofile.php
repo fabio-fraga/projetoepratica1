@@ -18,10 +18,14 @@ exit();
 include 'templates/header.php';
 
 ?>
+
+<body>
+    
+  <main>
 <?php if($_SESSION['login'] == $consulta[0]['US_ID']): ?>
 
           <form enctype="multipart/form-data" method="POST" action="profile_edit.php">
-<div class="container" style="margin-top: 8%">
+<div class="container mt-3">
     
 	<div class="row">
       <div class="col-md-3">
@@ -39,20 +43,14 @@ include 'templates/header.php';
 
           <h6>Nova foto de perfil</h6>
           
-          <input type="file" class="form-control" name="image">
+          <input type="file" class="form-control-file" name="image">
         </div>
       </div>
       
-      <div class="col-md-9 personal-info">
+      <div class="col-md-9 personal-info" style="padding-left: 300px">
         <h3>Editar perfil</h3>
         
         <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-md-3 control-label">Username:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="text" name="name" placeholder="name" value="<?= $consulta[0]['US_NAME'] ?>">
-            </div>
-          </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Linkedin:</label>
             <div class="col-lg-8">
@@ -71,7 +69,7 @@ include 'templates/header.php';
               <input class="form-control" type="date"  placeholder="Data de Nascimento" name="birth" placeholder="Nascimento" value="<?= $consulta[0]['US_BIRTH'] ?>">
             </div>
             <div class="form-group">
-            <label class="col-lg-3 control-label">Descriçãos:</label>
+            <label class="col-lg-3 control-label">Descrição:</label>
             <div class="col-lg-8">
               <input class="form-control" type="text" placeholder="Descrição" name="description" value="<?= $consulta[0]['US_DESCRIPTION'] ?>">
             </div>
@@ -91,9 +89,15 @@ include 'templates/header.php';
 </form>
 <?php endif ?>
 
+    
+    
+  </main>
+
 
 <?php
 
 include 'templates/footer.php';
 
 ?>
+</body>
+</html>

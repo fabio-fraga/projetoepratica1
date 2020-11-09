@@ -34,7 +34,7 @@ if (empty($birth) || empty_text($birth)) {
 
 if ($erro_campos == false) {
 
-if (isset($_FILES['image']) && is_uploaded_file($_FILES["image"]["tmp_name"])) {
+if (isset($_FILES['image'])) {
 
     if (!file_exists('upload/' . $_SESSION['login'])) { 
       mkdir('upload/' . $_SESSION['login'], 0700, true);
@@ -54,17 +54,14 @@ if (isset($_FILES['image']) && is_uploaded_file($_FILES["image"]["tmp_name"])) {
 	$stmt = $pdo->prepare("
   		UPDATE USERS
   		SET
-  		US_LINKEDIN = ?,
-  		US_GITHUB = ?,
-  		US_BIRTH = ?,
-  		US_DESCRIPTION = ?,
   		US_IMAGE = ?
   		WHERE US_ID = ?
 	");
 
-	$stmt->execute([$linkedin, $github, $birth, $description, $img, $_SESSION['login']]);
+	$stmt->execute([$img, $_SESSION['login']]);
 
-} else {
+} 
+
 	$stmt = $pdo->prepare("
   		UPDATE USERS
   		SET
@@ -77,8 +74,8 @@ if (isset($_FILES['image']) && is_uploaded_file($_FILES["image"]["tmp_name"])) {
 
 
 	$stmt->execute([$linkedin, $github, $birth, $description, $_SESSION['login']]);
+
 }
 	unset($_FILES);
 	header('location: my_profile.php?id='.$_SESSION['login']);
-}
 ?>

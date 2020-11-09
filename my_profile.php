@@ -1,56 +1,61 @@
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <title>Profile User</title>
-<?php 
-include 'templates/header.php'; 
+  <?php include 'templates/header.php'; ?>
+</head>
 
-include'bd.php';
-
-
-?>
+<body>
+  
+  <main>
+    
   <?php 
-$stmt = $pdo->prepare("
-   SELECT * FROM USERS LEFT JOIN TOPICS ON TOP_US_ID = US_ID WHERE US_ID = ? ORDER BY TOP_DATE DESC
+
+  include'bd.php';
+
+    $stmt = $pdo->prepare("
+      SELECT * FROM USERS LEFT JOIN TOPICS ON TOP_US_ID = US_ID WHERE US_ID = ? ORDER BY TOP_DATE DESC
     ");
 
     $stmt->execute([$_GET['id']]);
 
     $consulta = $stmt->fetchAll();
-     ?>
+  
+  ?>
 
-
-<div class="container mt-5">
+  <div class="container mt-n3">
     <div class="main-body">
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body mt-5">
-                  <div class="d-flex flex-column align-items-center text-center">
+      <div class="row gutters-sm">
+        <div class="col-md-4 mb-3 px-0">
+          <div class="card">
+            <div class="card-body mt-5">
+              <div class="d-flex flex-column align-items-center text-center">
 
-                      <?php if ($consulta[0]['US_IMAGE'] == null): ?> 
-                                  <img  src="upload/standard.png" class="rounded-circle" width="150" height="150">
-                           <?php else: ?>
+                <?php if ($consulta[0]['US_IMAGE'] == null): ?>
+                  <svg width="4.5em" height="4.5em" viewBox="0 0 16 16" class="bi bi-person-circle d-block m-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                    <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+                  </svg>
 
-                           <img  src="<?= $consulta[0]['US_IMAGE'] ?>" class="rounded-circle" width="150" height="150">
+                  <?php else: ?>
+                    <img  src="<?= $consulta[0]['US_IMAGE'] ?>" class="rounded-circle" width="150" height="150">
 
-                    <?php endif ?>
+                <?php endif ?>
 
-                    <div class="mt-3">
-                      <h4><p class="text-primary mb-1"><?= $consulta[0]['US_DESCRIPTION'] ?></p></h4>
-                      <?php if ($_SESSION['login'] == $_GET['id']): ?>
+                  <div class="mt-3">
+                    <h4><p class="text-primary mb-1"><?= $consulta[0]['US_DESCRIPTION'] ?></p></h4>
+                    <?php if ($_SESSION['login'] == $_GET['id']): ?>
 
-                      <p><a href="editprofile.php">Editar perfil</a></p>
-                      <?php endif ?>
+                    <p><a href="editprofile.php">Editar perfil</a></p>
+                <?php endif ?>
                       
-                    </div>
                   </div>
-                </div>
+
               </div>
+            </div>
+          </div>
               <div class="card mt-3">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -95,7 +100,7 @@ $stmt = $pdo->prepare("
                 </ul>
               </div>
             </div>
-            <div class="col-md-8" style="margin-top: 16%;" >
+            <div class="col-md-8">
               <div class="card mb-3">
                 <div class="card-body mt-5">
                   <div class="row">
@@ -178,12 +183,18 @@ $stmt = $pdo->prepare("
         </div>
     </div>
     <?php endfor ?>
+
+  </main>
+    <?php include 'templates/footer.php' ?>
+  
     <script>
         $('.delete').on('click', evt => {
           if (!confirm("Quer realmente apagar o seu Tópico?")) evt.preventDefault()
         })
       </script>
 
-    <?php include 'templates/footer.php' ?>
+</body>
+
+</html>
 
 
