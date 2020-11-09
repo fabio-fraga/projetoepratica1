@@ -1,3 +1,4 @@
+<link rel="icon" href="img/favicon.ico"/>
 <link rel="stylesheet" type="text/css" href="styles/main.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -73,7 +74,9 @@ $consulta = $stmt->fetchAll();
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <div class="md-form my-0 mr-2">
-        <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar..." aria-label="Search">
+        <form action="home.php" method="GET">
+          <input class="form-control mr-sm-2" name="pesquisa" type="text" placeholder="Pesquisar..." aria-label="Search">
+        </form>
       </div>
       <li class="nav-item avatar mt-1">
         <a class="nav-link p-0">
